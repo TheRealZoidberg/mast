@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Visualizing Periodic Signals Using a River Plot &#8212; MAST repository template</title>
+    <title>Visualizing Periodic Signals Using a River Plot &#8212; MAST Notebook Repository</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../../../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -95,10 +95,10 @@ const thebe_selector_output = ".output, .cell_output"
         
       
       
-      <img src="../../../../_static/logo.png" class="logo" alt="logo">
+      <img src="../../../../_static/mastlogo.png" class="logo" alt="logo">
       
       
-      <h1 class="site-logo" id="site-title">MAST repository template</h1>
+      <h1 class="site-logo" id="site-title">MAST Notebook Repository</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="../../../../search.html" method="get">
@@ -961,57 +961,16 @@ title="Print to PDF"
 <span class="g g-Whitespace">     </span><span class="mi">41</span> <span class="k">def</span> <span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">):</span>
 <span class="ne">---&gt; </span><span class="mi">42</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_apply</span><span class="p">(</span><span class="s1">&#39;__getitem__&#39;</span><span class="p">,</span> <span class="n">item</span><span class="p">)</span>
 
-<span class="nn">File /usr/share/miniconda/lib/python3.9/site-packages/astropy/utils/masked/core.py:280,</span> in <span class="ni">Masked._apply</span><span class="nt">(self, method, *args, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">277</span>     <span class="n">data</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">unmasked</span><span class="p">,</span> <span class="n">method</span><span class="p">)(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">278</span>     <span class="n">mask</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">mask</span><span class="p">,</span> <span class="n">method</span><span class="p">)(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">280</span> <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">from_unmasked</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">mask</span><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="nn">File /usr/share/miniconda/lib/python3.9/site-packages/astropy/utils/masked/core.py:282,</span> in <span class="ni">Masked._apply</span><span class="nt">(self, method, *args, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">280</span> <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">from_unmasked</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">mask</span><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="g g-Whitespace">    </span><span class="mi">281</span> <span class="k">if</span> <span class="s1">&#39;info&#39;</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">282</span>     <span class="n">result</span><span class="o">.</span><span class="n">info</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">info</span>
+<span class="ne">--&gt; </span><span class="mi">282</span>     <span class="n">result</span><span class="o">.</span><span class="n">info</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">info</span>
+<span class="g g-Whitespace">    </span><span class="mi">284</span> <span class="k">return</span> <span class="n">result</span>
 
-<span class="nn">File /usr/share/miniconda/lib/python3.9/site-packages/astropy/utils/masked/core.py:497,</span> in <span class="ni">MaskedNDArray.from_unmasked</span><span class="nt">(cls, data, mask, copy)</span>
-<span class="g g-Whitespace">    </span><span class="mi">492</span> <span class="nd">@classmethod</span>
-<span class="g g-Whitespace">    </span><span class="mi">493</span> <span class="k">def</span> <span class="nf">from_unmasked</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">mask</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">494</span>     <span class="c1"># Note: have to override since __new__ would use ndarray.__new__</span>
-<span class="g g-Whitespace">    </span><span class="mi">495</span>     <span class="c1"># which expects the shape as its first argument, not an array.</span>
-<span class="g g-Whitespace">    </span><span class="mi">496</span>     <span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">subok</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="n">copy</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">497</span>     <span class="bp">self</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="bp">cls</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">498</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_set_mask</span><span class="p">(</span><span class="n">mask</span><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="n">copy</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">499</span>     <span class="k">return</span> <span class="bp">self</span>
-
-<span class="nn">File /usr/share/miniconda/lib/python3.9/site-packages/astropy/units/quantity.py:537,</span> in <span class="ni">Quantity.__array_finalize__</span><span class="nt">(self, obj)</span>
-<span class="g g-Whitespace">    </span><span class="mi">535</span> <span class="n">super_array_finalize</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">__array_finalize__</span>
-<span class="g g-Whitespace">    </span><span class="mi">536</span> <span class="k">if</span> <span class="n">super_array_finalize</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">537</span>     <span class="n">super_array_finalize</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">539</span> <span class="c1"># If we&#39;re a new object or viewing an ndarray, nothing has to be done.</span>
-<span class="g g-Whitespace">    </span><span class="mi">540</span> <span class="k">if</span> <span class="n">obj</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">obj</span><span class="o">.</span><span class="vm">__class__</span> <span class="ow">is</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
-
-<span class="nn">File /usr/share/miniconda/lib/python3.9/site-packages/astropy/utils/masked/core.py:572,</span> in <span class="ni">MaskedNDArray.__array_finalize__</span><span class="nt">(self, obj)</span>
-<span class="g g-Whitespace">    </span><span class="mi">567</span>     <span class="n">super_array_finalize</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">569</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mask</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">570</span>     <span class="c1"># Got here after, e.g., a view of another masked class.</span>
-<span class="g g-Whitespace">    </span><span class="mi">571</span>     <span class="c1"># Get its mask, or initialize ours.</span>
-<span class="ne">--&gt; </span><span class="mi">572</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_set_mask</span><span class="p">(</span><span class="nb">getattr</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="s1">&#39;_mask&#39;</span><span class="p">,</span> <span class="kc">False</span><span class="p">))</span>
-<span class="g g-Whitespace">    </span><span class="mi">574</span> <span class="k">if</span> <span class="s1">&#39;info&#39;</span> <span class="ow">in</span> <span class="n">obj</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">575</span>     <span class="bp">self</span><span class="o">.</span><span class="n">info</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">info</span>
-
-<span class="nn">File /usr/share/miniconda/lib/python3.9/site-packages/astropy/utils/masked/core.py:225,</span> in <span class="ni">Masked._set_mask</span><span class="nt">(self, mask, copy)</span>
-<span class="g g-Whitespace">    </span><span class="mi">222</span> <span class="n">mask_dtype</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">make_mask_descr</span><span class="p">(</span><span class="n">self_dtype</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">223</span>               <span class="k">if</span> <span class="n">self_dtype</span> <span class="ow">and</span> <span class="n">self_dtype</span><span class="o">.</span><span class="n">names</span> <span class="k">else</span> <span class="n">np</span><span class="o">.</span><span class="n">dtype</span><span class="p">(</span><span class="s1">&#39;?&#39;</span><span class="p">))</span>
-<span class="g g-Whitespace">    </span><span class="mi">224</span> <span class="n">ma</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asanyarray</span><span class="p">(</span><span class="n">mask</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">mask_dtype</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">225</span> <span class="k">if</span> <span class="n">ma</span><span class="o">.</span><span class="n">shape</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">shape</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">226</span>     <span class="c1"># This will fail (correctly) if not broadcastable.</span>
-<span class="g g-Whitespace">    </span><span class="mi">227</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_mask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">mask_dtype</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">228</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_mask</span><span class="p">[</span><span class="o">...</span><span class="p">]</span> <span class="o">=</span> <span class="n">ma</span>
-
-<span class="nn">File /usr/share/miniconda/lib/python3.9/site-packages/astropy/utils/masked/core.py:594,</span> in <span class="ni">MaskedNDArray.shape</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">    </span><span class="mi">579</span> <span class="sd">&quot;&quot;&quot;The shape of the data and the mask.</span>
-<span class="g g-Whitespace">    </span><span class="mi">580</span><span class="sd"> </span>
-<span class="g g-Whitespace">    </span><span class="mi">581</span><span class="sd"> Usually used to get the current shape of an array, but may also be</span>
-<span class="sd">   (...)</span>
-<span class="g g-Whitespace">    </span><span class="mi">591</span><span class="sd"> </span>
-<span class="g g-Whitespace">    </span><span class="mi">592</span><span class="sd"> &quot;&quot;&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">593</span> <span class="c1"># Redefinition to allow defining a setter and add a docstring.</span>
-<span class="ne">--&gt; </span><span class="mi">594</span> <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">shape</span>
+<span class="nn">File /usr/share/miniconda/lib/python3.9/site-packages/astropy/utils/data_info.py:568,</span> in <span class="ni">BaseColumnInfo.__set__</span><span class="nt">(self, instance, value)</span>
+<span class="g g-Whitespace">    </span><span class="mi">565</span> <span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">566</span>     <span class="k">pass</span>
+<span class="ne">--&gt; </span><span class="mi">568</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__set__</span><span class="p">(</span><span class="n">instance</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
 
 <span class="ne">KeyboardInterrupt</span>: 
 </pre></div>

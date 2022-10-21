@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Hubble Source Catalog API Notebook &#8212; MAST repository template</title>
+    <title>Hubble Source Catalog API Notebook &#8212; MAST Notebook Repository</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../../../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -95,10 +95,10 @@ const thebe_selector_output = ".output, .cell_output"
         
       
       
-      <img src="../../../../_static/logo.png" class="logo" alt="logo">
+      <img src="../../../../_static/mastlogo.png" class="logo" alt="logo">
       
       
-      <h1 class="site-logo" id="site-title">MAST repository template</h1>
+      <h1 class="site-logo" id="site-title">MAST Notebook Repository</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="../../../../search.html" method="get">
@@ -1273,7 +1273,7 @@ title="Print to PDF"
 </pre></div>
 </div>
 <div class="output text_html"><div><i>Table length=19</i>
-<table id="table139641802923024" class="table-striped table-bordered table-condensed">
+<table id="table139666670951920" class="table-striped table-bordered table-condensed">
 <thead><tr><th>name</th><th>type</th><th>description</th></tr></thead>
 <thead><tr><th>str16</th><th>str5</th><th>str163</th></tr></thead>
 <tr><td>MatchID</td><td>long</td><td>identifier for the match</td></tr>
@@ -1355,34 +1355,34 @@ dec: 2.13333
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>https://catalogs.mast.stsci.edu/api/v0.1/hsc/v3/summary/magaper2.csv?A_F475W_N.gte=10&amp;A_F814W_N.gte=10&amp;ra=16.22583&amp;dec=2.13333&amp;radius=0.5&amp;columns=%5BMatchID%2CMatchRA%2CMatchDec%2CNumFilters%2CNumVisits%2CNumImages%2CStartMJD%2CStopMJD%2CA_F475W%2CA_F475W_N%2CA_F475W_MAD%2CA_F814W%2CA_F814W_N%2CA_F814W_MAD%5D
-22.5 s: retrieved data and converted to 18666-row astropy table
+25.6 s: retrieved data and converted to 18666-row astropy table
 </pre></div>
 </div>
 <div class="output text_html"><div><i>Table length=18666</i>
-<table id="table139640944391744" class="table-striped table-bordered table-condensed">
+<table id="table139666721428336" class="table-striped table-bordered table-condensed">
 <thead><tr><th>MatchID</th><th>MatchRA</th><th>MatchDec</th><th>NumFilters</th><th>NumVisits</th><th>NumImages</th><th>StartMJD</th><th>StopMJD</th><th>A_F475W</th><th>A_F475W_N</th><th>A_F475W_MAD</th><th>A_F814W</th><th>A_F814W_N</th><th>A_F814W_MAD</th></tr></thead>
 <thead><tr><th>int64</th><th>float64</th><th>float64</th><th>int64</th><th>int64</th><th>int64</th><th>float64</th><th>float64</th><th>float64</th><th>int64</th><th>float64</th><th>float64</th><th>int64</th><th>float64</th></tr></thead>
-<tr><td>19069415</td><td>16.137530</td><td>2.179060</td><td>2</td><td>12</td><td>24</td><td>53965.29153</td><td>53967.71941</td><td>25.101</td><td>12</td><td>0.034</td><td>24.105</td><td>12</td><td>0.016</td></tr>
-<tr><td>17552843</td><td>16.140176</td><td>2.144432</td><td>3</td><td>14</td><td>26</td><td>53965.29153</td><td>57009.86262</td><td>25.874</td><td>12</td><td>0.034</td><td>24.998</td><td>12</td><td>0.010</td></tr>
-<tr><td>19056277</td><td>16.126355</td><td>2.185297</td><td>2</td><td>12</td><td>24</td><td>53965.29153</td><td>53967.71941</td><td>26.723</td><td>12</td><td>0.050</td><td>26.670</td><td>12</td><td>0.036</td></tr>
-<tr><td>17553011</td><td>16.100928</td><td>2.132141</td><td>2</td><td>12</td><td>24</td><td>53965.29153</td><td>53967.71941</td><td>25.881</td><td>12</td><td>0.024</td><td>26.407</td><td>12</td><td>0.053</td></tr>
-<tr><td>19059010</td><td>16.112349</td><td>2.151543</td><td>3</td><td>14</td><td>26</td><td>53965.29153</td><td>57009.86262</td><td>24.120</td><td>12</td><td>0.025</td><td>22.833</td><td>12</td><td>0.009</td></tr>
-<tr><td>19061694</td><td>16.136652</td><td>2.143340</td><td>3</td><td>13</td><td>25</td><td>53965.29153</td><td>57009.86262</td><td>26.173</td><td>12</td><td>0.029</td><td>26.129</td><td>12</td><td>0.052</td></tr>
-<tr><td>17544172</td><td>16.103502</td><td>2.156585</td><td>3</td><td>14</td><td>26</td><td>53965.29153</td><td>57009.86262</td><td>24.570</td><td>12</td><td>0.009</td><td>23.924</td><td>12</td><td>0.011</td></tr>
-<tr><td>17656932</td><td>16.107492</td><td>2.165990</td><td>2</td><td>12</td><td>23</td><td>53965.29153</td><td>53967.71941</td><td>26.452</td><td>12</td><td>0.048</td><td>26.639</td><td>11</td><td>0.027</td></tr>
-<tr><td>19015671</td><td>16.130107</td><td>2.182996</td><td>2</td><td>12</td><td>24</td><td>53965.29153</td><td>53967.71941</td><td>25.561</td><td>12</td><td>0.028</td><td>25.915</td><td>12</td><td>0.042</td></tr>
-<tr><td>19024056</td><td>16.126577</td><td>2.193655</td><td>2</td><td>11</td><td>22</td><td>53965.29153</td><td>53967.71941</td><td>25.493</td><td>11</td><td>0.040</td><td>24.619</td><td>11</td><td>0.019</td></tr>
+<tr><td>28616492</td><td>16.110569</td><td>2.144993</td><td>2</td><td>12</td><td>24</td><td>53965.29153</td><td>53967.71941</td><td>26.501</td><td>12</td><td>0.035</td><td>25.805</td><td>12</td><td>0.053</td></tr>
+<tr><td>28757961</td><td>16.130369</td><td>2.161958</td><td>3</td><td>13</td><td>25</td><td>53965.29153</td><td>57008.60217</td><td>25.659</td><td>12</td><td>0.013</td><td>26.044</td><td>12</td><td>0.060</td></tr>
+<tr><td>28753978</td><td>16.143849</td><td>2.159541</td><td>2</td><td>12</td><td>24</td><td>53965.29153</td><td>53967.71941</td><td>26.086</td><td>12</td><td>0.029</td><td>26.556</td><td>12</td><td>0.021</td></tr>
+<tr><td>28900793</td><td>16.143416</td><td>2.140630</td><td>2</td><td>12</td><td>24</td><td>53965.29153</td><td>53967.71941</td><td>24.720</td><td>12</td><td>0.024</td><td>25.457</td><td>12</td><td>0.024</td></tr>
+<tr><td>28718406</td><td>16.116743</td><td>2.137664</td><td>3</td><td>14</td><td>26</td><td>53965.29153</td><td>57009.86262</td><td>25.392</td><td>12</td><td>0.077</td><td>25.342</td><td>12</td><td>0.051</td></tr>
+<tr><td>28718738</td><td>16.119899</td><td>2.157998</td><td>3</td><td>13</td><td>25</td><td>53965.29153</td><td>57009.86262</td><td>25.587</td><td>12</td><td>0.021</td><td>25.943</td><td>12</td><td>0.067</td></tr>
+<tr><td>28722440</td><td>16.117016</td><td>2.178001</td><td>2</td><td>12</td><td>24</td><td>53965.29153</td><td>53967.71941</td><td>24.930</td><td>12</td><td>0.017</td><td>25.515</td><td>12</td><td>0.027</td></tr>
+<tr><td>28730112</td><td>16.126124</td><td>2.139071</td><td>3</td><td>14</td><td>26</td><td>53965.29153</td><td>57009.86262</td><td>26.665</td><td>12</td><td>0.040</td><td>23.709</td><td>12</td><td>0.013</td></tr>
+<tr><td>28730347</td><td>16.114774</td><td>2.134948</td><td>2</td><td>12</td><td>24</td><td>53965.29153</td><td>53967.71941</td><td>26.146</td><td>12</td><td>0.020</td><td>26.310</td><td>12</td><td>0.069</td></tr>
+<tr><td>28730559</td><td>16.095372</td><td>2.145736</td><td>2</td><td>12</td><td>24</td><td>53965.29153</td><td>53967.71941</td><td>25.452</td><td>12</td><td>0.019</td><td>25.870</td><td>12</td><td>0.036</td></tr>
 <tr><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td></tr>
-<tr><td>88867056</td><td>16.090364</td><td>2.169584</td><td>2</td><td>12</td><td>24</td><td>53965.29153</td><td>53967.71941</td><td>25.449</td><td>12</td><td>0.023</td><td>24.518</td><td>12</td><td>0.015</td></tr>
-<tr><td>91904756</td><td>16.099238</td><td>2.128425</td><td>2</td><td>12</td><td>24</td><td>53965.29153</td><td>53967.71941</td><td>24.264</td><td>12</td><td>0.008</td><td>23.227</td><td>12</td><td>0.008</td></tr>
-<tr><td>91906700</td><td>16.135674</td><td>2.173728</td><td>2</td><td>10</td><td>20</td><td>53965.29153</td><td>53967.71941</td><td>26.625</td><td>10</td><td>0.026</td><td>26.629</td><td>10</td><td>0.071</td></tr>
-<tr><td>91873160</td><td>16.122503</td><td>2.168468</td><td>2</td><td>12</td><td>23</td><td>53965.29153</td><td>53967.71941</td><td>26.471</td><td>12</td><td>0.086</td><td>26.631</td><td>11</td><td>0.044</td></tr>
-<tr><td>91878056</td><td>16.123222</td><td>2.165975</td><td>3</td><td>14</td><td>26</td><td>53965.29153</td><td>57009.86262</td><td>23.779</td><td>12</td><td>0.009</td><td>22.477</td><td>12</td><td>0.014</td></tr>
-<tr><td>93164991</td><td>16.116344</td><td>2.177309</td><td>3</td><td>14</td><td>26</td><td>53965.29153</td><td>57009.86262</td><td>25.183</td><td>12</td><td>0.019</td><td>24.261</td><td>12</td><td>0.011</td></tr>
-<tr><td>88898450</td><td>16.097194</td><td>2.133883</td><td>2</td><td>12</td><td>24</td><td>53965.29153</td><td>53967.71941</td><td>25.468</td><td>12</td><td>0.021</td><td>25.897</td><td>12</td><td>0.052</td></tr>
-<tr><td>91866528</td><td>16.144644</td><td>2.160648</td><td>2</td><td>12</td><td>24</td><td>53965.29153</td><td>53967.71941</td><td>25.117</td><td>12</td><td>0.007</td><td>24.291</td><td>12</td><td>0.011</td></tr>
-<tr><td>91839218</td><td>16.145970</td><td>2.152589</td><td>2</td><td>12</td><td>24</td><td>53965.29153</td><td>53967.71941</td><td>25.570</td><td>12</td><td>0.022</td><td>25.937</td><td>12</td><td>0.061</td></tr>
-<tr><td>88977505</td><td>16.114533</td><td>2.156643</td><td>3</td><td>14</td><td>26</td><td>53965.29153</td><td>57009.86262</td><td>26.194</td><td>12</td><td>0.069</td><td>25.344</td><td>12</td><td>0.026</td></tr>
+<tr><td>88510994</td><td>16.119530</td><td>2.136111</td><td>3</td><td>14</td><td>26</td><td>53965.29153</td><td>57009.86262</td><td>25.388</td><td>12</td><td>0.010</td><td>24.585</td><td>12</td><td>0.038</td></tr>
+<tr><td>89643115</td><td>16.090883</td><td>2.167145</td><td>2</td><td>12</td><td>24</td><td>53965.29153</td><td>53967.71941</td><td>26.826</td><td>12</td><td>0.060</td><td>26.667</td><td>12</td><td>0.090</td></tr>
+<tr><td>88393023</td><td>16.147846</td><td>2.144980</td><td>3</td><td>14</td><td>26</td><td>53965.29153</td><td>57009.86262</td><td>26.257</td><td>12</td><td>0.055</td><td>25.544</td><td>12</td><td>0.056</td></tr>
+<tr><td>88393828</td><td>16.127277</td><td>2.149586</td><td>2</td><td>12</td><td>24</td><td>53965.29153</td><td>53967.71941</td><td>25.872</td><td>12</td><td>0.031</td><td>26.383</td><td>12</td><td>0.116</td></tr>
+<tr><td>87702943</td><td>16.138958</td><td>2.174714</td><td>2</td><td>12</td><td>24</td><td>53965.29153</td><td>53967.71941</td><td>24.139</td><td>12</td><td>0.006</td><td>24.785</td><td>12</td><td>0.041</td></tr>
+<tr><td>87834057</td><td>16.117745</td><td>2.182932</td><td>3</td><td>14</td><td>26</td><td>53965.29153</td><td>57009.86262</td><td>23.252</td><td>12</td><td>0.007</td><td>21.346</td><td>12</td><td>0.011</td></tr>
+<tr><td>89084937</td><td>16.144641</td><td>2.148638</td><td>3</td><td>14</td><td>26</td><td>53965.29153</td><td>57009.86262</td><td>22.114</td><td>12</td><td>0.006</td><td>22.906</td><td>12</td><td>0.004</td></tr>
+<tr><td>89072890</td><td>16.120682</td><td>2.131725</td><td>2</td><td>12</td><td>24</td><td>53965.29153</td><td>53967.71941</td><td>25.680</td><td>12</td><td>0.037</td><td>26.262</td><td>12</td><td>0.050</td></tr>
+<tr><td>89073038</td><td>16.108132</td><td>2.172564</td><td>2</td><td>12</td><td>22</td><td>53965.29153</td><td>53967.71941</td><td>26.276</td><td>12</td><td>0.020</td><td>26.698</td><td>10</td><td>0.040</td></tr>
+<tr><td>88489770</td><td>16.127578</td><td>2.175030</td><td>2</td><td>12</td><td>24</td><td>53965.29153</td><td>53967.71941</td><td>26.220</td><td>12</td><td>0.027</td><td>26.617</td><td>12</td><td>0.054</td></tr>
 </table></div></div></div>
 </div>
 </section>
@@ -1468,7 +1468,7 @@ dec: 2.13333
 </pre></div>
 </div>
 <div class="output text_html"><div><i>Table length=29</i>
-<table id="table139640873027088" class="table-striped table-bordered table-condensed">
+<table id="table139665724476480" class="table-striped table-bordered table-condensed">
 <thead><tr><th>MatchID</th><th>MatchRA</th><th>MatchDec</th><th>NumFilters</th><th>NumVisits</th><th>NumImages</th><th>StartMJD</th><th>StopMJD</th><th>A_F475W</th><th>A_F475W_N</th><th>A_F475W_MAD</th><th>A_F814W</th><th>A_F814W_N</th><th>A_F814W_MAD</th></tr></thead>
 <thead><tr><th>int64</th><th>float64</th><th>float64</th><th>int64</th><th>int64</th><th>int64</th><th>float64</th><th>float64</th><th>float64</th><th>int64</th><th>float64</th><th>float64</th><th>int64</th><th>float64</th></tr></thead>
 <tr><td>80189155</td><td>16.140740</td><td>2.155288</td><td>3</td><td>14</td><td>26</td><td>53965.29153</td><td>57009.86262</td><td>22.451</td><td>12</td><td>0.294</td><td>22.001</td><td>12</td><td>0.198</td></tr>
@@ -1542,11 +1542,11 @@ dec: 2.13333
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.4 s: retrieved data and converted to 12 (F475W) and 12 (F814W) row astropy tables
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.5 s: retrieved data and converted to 12 (F475W) and 12 (F814W) row astropy tables
 </pre></div>
 </div>
 <div class="output text_html"><div><i>Table length=12</i>
-<table id="table139640873087760" class="table-striped table-bordered table-condensed">
+<table id="table139665775760672" class="table-striped table-bordered table-condensed">
 <thead><tr><th>MatchID</th><th>SourceID</th><th>StartMJD</th><th>Detector</th><th>Filter</th><th>MagAper2</th><th>Flags</th><th>ImageName</th></tr></thead>
 <thead><tr><th>int64</th><th>int64</th><th>float64</th><th>str7</th><th>str5</th><th>float64</th><th>int64</th><th>str26</th></tr></thead>
 <tr><td>80189155</td><td>4000999062305</td><td>53965.29153</td><td>ACS/WFC</td><td>F475W</td><td>22.192</td><td>0</td><td>hst_10505_07_acs_wfc_f475w</td></tr>
@@ -1581,7 +1581,7 @@ dec: 2.13333
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f00ac9e9d00&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f0675e15700&gt;
 </pre></div>
 </div>
 <img alt="../../../../_images/hscv3_api_28_1.png" src="../../../../_images/hscv3_api_28_1.png" />

@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Hubble Catalog of Variables Notebook (CasJobs version) &#8212; MAST repository template</title>
+    <title>Hubble Catalog of Variables Notebook (CasJobs version) &#8212; MAST Notebook Repository</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../../../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -97,10 +97,10 @@ const thebe_selector_output = ".output, .cell_output"
         
       
       
-      <img src="../../../../_static/logo.png" class="logo" alt="logo">
+      <img src="../../../../_static/mastlogo.png" class="logo" alt="logo">
       
       
-      <h1 class="site-logo" id="site-title">MAST repository template</h1>
+      <h1 class="site-logo" id="site-title">MAST Notebook Repository</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="../../../../search.html" method="get">
@@ -1250,6 +1250,12 @@ See <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2019A%
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ra: 16.22583
+dec: 2.13333
+</pre></div>
+</div>
+</div>
 </div>
 </section>
 <section id="select-objects-near-ic-1613-with-acs-f475w-and-f814w-measurements-from-hcv-a-name-summary-a">
@@ -1295,6 +1301,33 @@ See <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2019A%
 
 <span class="c1"># show some of the variable sources</span>
 <span class="n">tab</span><span class="p">[</span><span class="n">tab</span><span class="p">[</span><span class="s1">&#39;AutoClass&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="nn">Input In [6],</span> in <span class="ni">&lt;cell line: 2&gt;</span><span class="nt">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">DBtable</span> <span class="o">=</span> <span class="s2">&quot;HCV_demo&quot;</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">jobs</span> <span class="o">=</span> <span class="n">mastcasjobs</span><span class="o">.</span><span class="n">MastCasJobs</span><span class="p">(</span><span class="n">context</span><span class="o">=</span><span class="s2">&quot;MyDB&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="c1"># drop table if it already exists</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">jobs</span><span class="o">.</span><span class="n">drop_table_if_exists</span><span class="p">(</span><span class="n">DBtable</span><span class="p">)</span>
+
+<span class="nn">File ~/opt/miniconda3/envs/py3810/lib/python3.8/site-packages/mastcasjobs/__init__.py:96,</span> in <span class="ni">MastCasJobs.__init__</span><span class="nt">(self, username, password, userid, request_type, context, base_url, wsid_url, fast_url)</span>
+<span class="g g-Whitespace">     </span><span class="mi">94</span> <span class="bp">self</span><span class="o">.</span><span class="n">fast_url</span> <span class="o">=</span> <span class="n">fast_url</span>
+<span class="g g-Whitespace">     </span><span class="mi">95</span> <span class="k">if</span> <span class="n">username</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span class="ne">---&gt; </span><span class="mi">96</span>     <span class="n">userid</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_wsid</span><span class="p">()</span>
+<span class="g g-Whitespace">     </span><span class="mi">98</span> <span class="nb">super</span><span class="p">(</span><span class="n">MastCasJobs</span><span class="p">,</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">userid</span><span class="o">=</span><span class="n">userid</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="n">password</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">99</span>         <span class="n">base_url</span><span class="o">=</span><span class="n">base_url</span><span class="p">,</span> <span class="n">request_type</span><span class="o">=</span><span class="n">request_type</span><span class="p">,</span> <span class="n">context</span><span class="o">=</span><span class="n">context</span><span class="p">)</span>
+
+<span class="nn">File ~/opt/miniconda3/envs/py3810/lib/python3.8/site-packages/mastcasjobs/__init__.py:176,</span> in <span class="ni">MastCasJobs.get_wsid</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">174</span> <span class="n">root</span> <span class="o">=</span> <span class="n">ET</span><span class="o">.</span><span class="n">fromstring</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">175</span> <span class="k">if</span> <span class="n">root</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="p">(</span><span class="ow">not</span> <span class="n">root</span><span class="o">.</span><span class="n">text</span><span class="p">)</span> <span class="ow">or</span> <span class="n">root</span><span class="o">.</span><span class="n">text</span> <span class="o">==</span> <span class="s2">&quot;-1&quot;</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">176</span>     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Incorrect MAST CasJobs username/password&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">177</span> <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">178</span>     <span class="k">return</span> <span class="n">root</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+
+<span class="ne">ValueError</span>: Incorrect MAST CasJobs username/password
 </pre></div>
 </div>
 </div>

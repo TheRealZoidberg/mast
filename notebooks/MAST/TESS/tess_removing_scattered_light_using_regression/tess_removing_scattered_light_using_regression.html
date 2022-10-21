@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Removing Scattered Light from TESS Data Using the Lightkurve RegressionCorrector &#8212; MAST repository template</title>
+    <title>Removing Scattered Light from TESS Data Using the Lightkurve RegressionCorrector &#8212; MAST Notebook Repository</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../../../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -97,10 +97,10 @@ const thebe_selector_output = ".output, .cell_output"
         
       
       
-      <img src="../../../../_static/logo.png" class="logo" alt="logo">
+      <img src="../../../../_static/mastlogo.png" class="logo" alt="logo">
       
       
-      <h1 class="site-logo" id="site-title">MAST repository template</h1>
+      <h1 class="site-logo" id="site-title">MAST Notebook Repository</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="../../../../search.html" method="get">
@@ -1221,30 +1221,30 @@ We’ll start by downloading the FFI data using MAST’s TESSCut service, queryi
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html"><div><i>LightCurve length=1190</i>
-<table id="table140396002265936" class="table-striped table-bordered table-condensed">
+<table id="table139947834082256" class="table-striped table-bordered table-condensed">
 <thead><tr><th>time</th><th>flux</th><th>flux_err</th></tr></thead>
 <thead><tr><th></th><th>electron / s</th><th>electron / s</th></tr></thead>
 <thead><tr><th>Time</th><th>float64</th><th>float64</th></tr></thead>
-<tr><td>1711.3882446289062</td><td>-341.1881606894176</td><td>0.0</td></tr>
-<tr><td>1711.4090576171875</td><td>-341.2140788644756</td><td>0.0</td></tr>
-<tr><td>1711.4298706054688</td><td>-341.9634439704105</td><td>0.0</td></tr>
-<tr><td>1711.4507446289062</td><td>-341.83822804048486</td><td>0.0</td></tr>
-<tr><td>1711.4715576171875</td><td>-342.19865759241384</td><td>0.0</td></tr>
-<tr><td>1711.4923706054688</td><td>-342.1091946304923</td><td>0.0</td></tr>
-<tr><td>1711.5132446289062</td><td>-345.8799031162289</td><td>0.0</td></tr>
-<tr><td>1711.5340576171875</td><td>-347.95382323852937</td><td>0.0</td></tr>
-<tr><td>1711.5548706054688</td><td>-344.85160661696045</td><td>0.0</td></tr>
+<tr><td>1711.3882446289062</td><td>-341.18816068926753</td><td>0.0</td></tr>
+<tr><td>1711.4090576171875</td><td>-341.2140788643901</td><td>0.0</td></tr>
+<tr><td>1711.4298706054688</td><td>-341.9634439702704</td><td>0.0</td></tr>
+<tr><td>1711.4507446289062</td><td>-341.8382280403994</td><td>0.0</td></tr>
+<tr><td>1711.4715576171875</td><td>-342.19865759231925</td><td>0.0</td></tr>
+<tr><td>1711.4923706054688</td><td>-342.10919463037226</td><td>0.0</td></tr>
+<tr><td>1711.5132446289062</td><td>-345.8799031162107</td><td>0.0</td></tr>
+<tr><td>1711.5340576171875</td><td>-347.95382323862395</td><td>0.0</td></tr>
+<tr><td>1711.5548706054688</td><td>-344.8516066168777</td><td>0.0</td></tr>
 <tr><td>...</td><td>...</td><td>...</td></tr>
-<tr><td>1737.2003784179688</td><td>546.2058623586117</td><td>0.0</td></tr>
-<tr><td>1737.2212524414062</td><td>467.2653695111294</td><td>0.0</td></tr>
-<tr><td>1737.2420654296875</td><td>386.197377841695</td><td>0.0</td></tr>
-<tr><td>1737.2628784179688</td><td>307.61742929056163</td><td>0.0</td></tr>
-<tr><td>1737.2837524414062</td><td>218.35482253301961</td><td>0.0</td></tr>
-<tr><td>1737.3045654296875</td><td>109.6059244114449</td><td>0.0</td></tr>
-<tr><td>1737.3253784179688</td><td>2.4883698940502654</td><td>0.0</td></tr>
-<tr><td>1737.3462524414062</td><td>-92.9196504667434</td><td>0.0</td></tr>
-<tr><td>1737.3670654296875</td><td>-179.75423736136872</td><td>0.0</td></tr>
-<tr><td>1737.3878784179688</td><td>-238.60812425242239</td><td>0.0</td></tr>
+<tr><td>1737.2003784179688</td><td>546.2058623583916</td><td>0.0</td></tr>
+<tr><td>1737.2212524414062</td><td>467.2653695109275</td><td>0.0</td></tr>
+<tr><td>1737.2420654296875</td><td>386.197377841504</td><td>0.0</td></tr>
+<tr><td>1737.2628784179688</td><td>307.61742929041975</td><td>0.0</td></tr>
+<tr><td>1737.2837524414062</td><td>218.35482253283953</td><td>0.0</td></tr>
+<tr><td>1737.3045654296875</td><td>109.60592441129211</td><td>0.0</td></tr>
+<tr><td>1737.3253784179688</td><td>2.4883698938519956</td><td>0.0</td></tr>
+<tr><td>1737.3462524414062</td><td>-92.91965046688074</td><td>0.0</td></tr>
+<tr><td>1737.3670654296875</td><td>-179.75423736147877</td><td>0.0</td></tr>
+<tr><td>1737.3878784179688</td><td>-238.60812425255608</td><td>0.0</td></tr>
 </table></div></div></div>
 </div>
 <div class="cell docutils container">
@@ -1434,7 +1434,7 @@ We’ll start by downloading the FFI data using MAST’s TESSCut service, queryi
 </div>
 <div class="cell_output docutils container">
 <div class="output text_latex math notranslate nohighlight">
-\[825.56204 \; \mathrm{ppm}\]</div>
+\[825.56012 \; \mathrm{ppm}\]</div>
 </div>
 </div>
 </section>

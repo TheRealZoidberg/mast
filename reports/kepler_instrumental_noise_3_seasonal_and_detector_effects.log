@@ -17,15 +17,30 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-search_result = lk.search_lightcurve("Kepler-8", mission="Kepler")
-search_result
+fig = plt.figure(figsize=(12, 9))
+grid = gs.GridSpec(2,2)
+plt.rcParams.update({'font.size': 12})
+
+i = 0
+for q in np.arange(8,12):
+    x,y = np.unravel_index(i, (2,2))
+    tpf = lk.search_targetpixelfile('KIC 2437394', quarter=q).download()
+    ax = plt.subplot(grid[x,y], projection=tpf.wcs)
+    tpf.plot(ax=ax, title=f'Quarter {q}', xlabel=' ', ylabel=' ')
+    i+=1
+
+fig.text(0, 0.5, 'Dec', ha='center', rotation='vertical', size=20)
+fig.text(0.5, 0, 'RA', ha='center', size=20)
 ------------------
 
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mHTTPError[0m                                 Traceback (most recent call last)
-Cell [0;32mIn [2], line 1[0m
-[0;32m----> 1[0m search_result [38;5;241m=[39m [43mlk[49m[38;5;241;43m.[39;49m[43msearch_lightcurve[49m[43m([49m[38;5;124;43m"[39;49m[38;5;124;43mKepler-8[39;49m[38;5;124;43m"[39;49m[43m,[49m[43m [49m[43mmission[49m[38;5;241;43m=[39;49m[38;5;124;43m"[39;49m[38;5;124;43mKepler[39;49m[38;5;124;43m"[39;49m[43m)[49m
-[1;32m      2[0m search_result
+Cell [0;32mIn [2], line 8[0m
+[1;32m      6[0m [38;5;28;01mfor[39;00m q [38;5;129;01min[39;00m np[38;5;241m.[39marange([38;5;241m8[39m,[38;5;241m12[39m):
+[1;32m      7[0m     x,y [38;5;241m=[39m np[38;5;241m.[39munravel_index(i, ([38;5;241m2[39m,[38;5;241m2[39m))
+[0;32m----> 8[0m     tpf [38;5;241m=[39m [43mlk[49m[38;5;241;43m.[39;49m[43msearch_targetpixelfile[49m[43m([49m[38;5;124;43m'[39;49m[38;5;124;43mKIC 2437394[39;49m[38;5;124;43m'[39;49m[43m,[49m[43m [49m[43mquarter[49m[38;5;241;43m=[39;49m[43mq[49m[43m)[49m[38;5;241m.[39mdownload()
+[1;32m      9[0m     ax [38;5;241m=[39m plt[38;5;241m.[39msubplot(grid[x,y], projection[38;5;241m=[39mtpf[38;5;241m.[39mwcs)
+[1;32m     10[0m     tpf[38;5;241m.[39mplot(ax[38;5;241m=[39max, title[38;5;241m=[39m[38;5;124mf[39m[38;5;124m'[39m[38;5;124mQuarter [39m[38;5;132;01m{[39;00mq[38;5;132;01m}[39;00m[38;5;124m'[39m, xlabel[38;5;241m=[39m[38;5;124m'[39m[38;5;124m [39m[38;5;124m'[39m, ylabel[38;5;241m=[39m[38;5;124m'[39m[38;5;124m [39m[38;5;124m'[39m)
 
 File [0;32m/usr/share/miniconda/lib/python3.9/site-packages/memoization/caching/plain_cache.py:42[0m, in [0;36mget_caching_wrapper.<locals>.wrapper[0;34m(*args, **kwargs)[0m
 [1;32m     40[0m [38;5;28;01mwith[39;00m lock:
@@ -34,29 +49,29 @@ File [0;32m/usr/share/miniconda/lib/python3.9/site-packages/memoization/caching
 [1;32m     43[0m cache[key] [38;5;241m=[39m values_toolkit[38;5;241m.[39mmake_cache_value(result, ttl)
 [1;32m     44[0m key_argument_map[key] [38;5;241m=[39m (args, kwargs)
 
-File [0;32m/usr/share/miniconda/lib/python3.9/site-packages/lightkurve/search.py:843[0m, in [0;36msearch_lightcurve[0;34m(target, radius, exptime, cadence, mission, author, quarter, month, campaign, sector, limit)[0m
-[1;32m    743[0m [38;5;124;03m"""Search the `MAST data archive <https://archive.stsci.edu>`_ for light curves.[39;00m
-[1;32m    744[0m 
-[1;32m    745[0m [38;5;124;03mThis function fetches a data table that lists the Light Curve Files[39;00m
+File [0;32m/usr/share/miniconda/lib/python3.9/site-packages/lightkurve/search.py:704[0m, in [0;36msearch_targetpixelfile[0;34m(target, radius, exptime, cadence, mission, author, quarter, month, campaign, sector, limit)[0m
+[1;32m    614[0m [38;5;124;03m"""Search the `MAST data archive <https://archive.stsci.edu>`_ for target pixel files.[39;00m
+[1;32m    615[0m 
+[1;32m    616[0m [38;5;124;03mThis function fetches a data table that lists the Target Pixel Files (TPFs)[39;00m
 [0;32m   (...)[0m
-[1;32m    840[0m [38;5;124;03m    >>> search_lightcurve('Kepler-10', radius=100, quarter=4, exptime=1800).download_all()  # doctest: +SKIP[39;00m
-[1;32m    841[0m [38;5;124;03m"""[39;00m
-[1;32m    842[0m [38;5;28;01mtry[39;00m:
-[0;32m--> 843[0m     [38;5;28;01mreturn[39;00m [43m_search_products[49m[43m([49m
-[1;32m    844[0m [43m        [49m[43mtarget[49m[43m,[49m
-[1;32m    845[0m [43m        [49m[43mradius[49m[38;5;241;43m=[39;49m[43mradius[49m[43m,[49m
-[1;32m    846[0m [43m        [49m[43mfiletype[49m[38;5;241;43m=[39;49m[38;5;124;43m"[39;49m[38;5;124;43mLightcurve[39;49m[38;5;124;43m"[39;49m[43m,[49m
-[1;32m    847[0m [43m        [49m[43mexptime[49m[38;5;241;43m=[39;49m[43mexptime[49m[43m [49m[38;5;129;43;01mor[39;49;00m[43m [49m[43mcadence[49m[43m,[49m
-[1;32m    848[0m [43m        [49m[43mmission[49m[38;5;241;43m=[39;49m[43mmission[49m[43m,[49m
-[1;32m    849[0m [43m        [49m[43mprovenance_name[49m[38;5;241;43m=[39;49m[43mauthor[49m[43m,[49m
-[1;32m    850[0m [43m        [49m[43mquarter[49m[38;5;241;43m=[39;49m[43mquarter[49m[43m,[49m
-[1;32m    851[0m [43m        [49m[43mmonth[49m[38;5;241;43m=[39;49m[43mmonth[49m[43m,[49m
-[1;32m    852[0m [43m        [49m[43mcampaign[49m[38;5;241;43m=[39;49m[43mcampaign[49m[43m,[49m
-[1;32m    853[0m [43m        [49m[43msector[49m[38;5;241;43m=[39;49m[43msector[49m[43m,[49m
-[1;32m    854[0m [43m        [49m[43mlimit[49m[38;5;241;43m=[39;49m[43mlimit[49m[43m,[49m
-[1;32m    855[0m [43m    [49m[43m)[49m
-[1;32m    856[0m [38;5;28;01mexcept[39;00m SearchError [38;5;28;01mas[39;00m exc:
-[1;32m    857[0m     log[38;5;241m.[39merror(exc)
+[1;32m    701[0m [38;5;124;03m    >>> search_targetpixelfile('Kepler-10', radius=100, quarter=4).download_all()  # doctest: +SKIP[39;00m
+[1;32m    702[0m [38;5;124;03m"""[39;00m
+[1;32m    703[0m [38;5;28;01mtry[39;00m:
+[0;32m--> 704[0m     [38;5;28;01mreturn[39;00m [43m_search_products[49m[43m([49m
+[1;32m    705[0m [43m        [49m[43mtarget[49m[43m,[49m
+[1;32m    706[0m [43m        [49m[43mradius[49m[38;5;241;43m=[39;49m[43mradius[49m[43m,[49m
+[1;32m    707[0m [43m        [49m[43mfiletype[49m[38;5;241;43m=[39;49m[38;5;124;43m"[39;49m[38;5;124;43mTarget Pixel[39;49m[38;5;124;43m"[39;49m[43m,[49m
+[1;32m    708[0m [43m        [49m[43mexptime[49m[38;5;241;43m=[39;49m[43mexptime[49m[43m [49m[38;5;129;43;01mor[39;49;00m[43m [49m[43mcadence[49m[43m,[49m
+[1;32m    709[0m [43m        [49m[43mmission[49m[38;5;241;43m=[39;49m[43mmission[49m[43m,[49m
+[1;32m    710[0m [43m        [49m[43mprovenance_name[49m[38;5;241;43m=[39;49m[43mauthor[49m[43m,[49m
+[1;32m    711[0m [43m        [49m[43mquarter[49m[38;5;241;43m=[39;49m[43mquarter[49m[43m,[49m
+[1;32m    712[0m [43m        [49m[43mmonth[49m[38;5;241;43m=[39;49m[43mmonth[49m[43m,[49m
+[1;32m    713[0m [43m        [49m[43mcampaign[49m[38;5;241;43m=[39;49m[43mcampaign[49m[43m,[49m
+[1;32m    714[0m [43m        [49m[43msector[49m[38;5;241;43m=[39;49m[43msector[49m[43m,[49m
+[1;32m    715[0m [43m        [49m[43mlimit[49m[38;5;241;43m=[39;49m[43mlimit[49m[43m,[49m
+[1;32m    716[0m [43m    [49m[43m)[49m
+[1;32m    717[0m [38;5;28;01mexcept[39;00m SearchError [38;5;28;01mas[39;00m exc:
+[1;32m    718[0m     log[38;5;241m.[39merror(exc)
 
 File [0;32m/usr/share/miniconda/lib/python3.9/site-packages/lightkurve/search.py:991[0m, in [0;36m_search_products[0;34m(target, radius, filetype, mission, provenance_name, exptime, quarter, month, campaign, sector, limit, **extra_query_criteria)[0m
 [1;32m    989[0m [38;5;28;01mif[39;00m filetype[38;5;241m.[39mlower() [38;5;241m==[39m [38;5;124m"[39m[38;5;124mffi[39m[38;5;124m"[39m [38;5;129;01mand[39;00m radius [38;5;129;01mis[39;00m [38;5;28;01mNone[39;00m:
@@ -77,12 +92,15 @@ File [0;32m/usr/share/miniconda/lib/python3.9/site-packages/lightkurve/search.p
 [1;32m   1004[0m )
 [1;32m   1005[0m [38;5;28;01mif[39;00m [38;5;28mlen[39m(observations) [38;5;241m==[39m [38;5;241m0[39m:
 
-File [0;32m/usr/share/miniconda/lib/python3.9/site-packages/lightkurve/search.py:1218[0m, in [0;36m_query_mast[0;34m(target, radius, project, provenance_name, exptime, sequence_number, **extra_query_criteria)[0m
-[1;32m   1216[0m     warnings[38;5;241m.[39mfilterwarnings([38;5;124m"[39m[38;5;124mignore[39m[38;5;124m"[39m, category[38;5;241m=[39mNoResultsWarning)
-[1;32m   1217[0m     warnings[38;5;241m.[39mfilterwarnings([38;5;124m"[39m[38;5;124mignore[39m[38;5;124m"[39m, message[38;5;241m=[39m[38;5;124m"[39m[38;5;124mt_exptime is continuous[39m[38;5;124m"[39m)
-[0;32m-> 1218[0m     obs [38;5;241m=[39m [43mObservations[49m[38;5;241;43m.[39;49m[43mquery_criteria[49m[43m([49m[43mobjectname[49m[38;5;241;43m=[39;49m[43mtarget[49m[43m,[49m[43m [49m[38;5;241;43m*[39;49m[38;5;241;43m*[39;49m[43mquery_criteria[49m[43m)[49m
-[1;32m   1219[0m obs[38;5;241m.[39msort([38;5;124m"[39m[38;5;124mdistance[39m[38;5;124m"[39m)
-[1;32m   1220[0m [38;5;66;03m# We use `exptime` as an alias for `t_exptime`[39;00m
+File [0;32m/usr/share/miniconda/lib/python3.9/site-packages/lightkurve/search.py:1189[0m, in [0;36m_query_mast[0;34m(target, radius, project, provenance_name, exptime, sequence_number, **extra_query_criteria)[0m
+[1;32m   1187[0m     warnings[38;5;241m.[39mfilterwarnings([38;5;124m"[39m[38;5;124mignore[39m[38;5;124m"[39m, category[38;5;241m=[39mNoResultsWarning)
+[1;32m   1188[0m     warnings[38;5;241m.[39mfilterwarnings([38;5;124m"[39m[38;5;124mignore[39m[38;5;124m"[39m, message[38;5;241m=[39m[38;5;124m"[39m[38;5;124mt_exptime is continuous[39m[38;5;124m"[39m)
+[0;32m-> 1189[0m     obs [38;5;241m=[39m [43mObservations[49m[38;5;241;43m.[39;49m[43mquery_criteria[49m[43m([49m
+[1;32m   1190[0m [43m        [49m[43mtarget_name[49m[38;5;241;43m=[39;49m[43mexact_target_name[49m[43m,[49m[43m [49m[38;5;241;43m*[39;49m[38;5;241;43m*[39;49m[43mquery_criteria[49m
+[1;32m   1191[0m [43m    [49m[43m)[49m
+[1;32m   1192[0m [38;5;28;01mif[39;00m [38;5;28mlen[39m(obs) [38;5;241m>[39m [38;5;241m0[39m:
+[1;32m   1193[0m     [38;5;66;03m# We use `exptime` as an alias for `t_exptime`[39;00m
+[1;32m   1194[0m     obs[[38;5;124m"[39m[38;5;124mexptime[39m[38;5;124m"[39m] [38;5;241m=[39m obs[[38;5;124m"[39m[38;5;124mt_exptime[39m[38;5;124m"[39m]
 
 File [0;32m/usr/share/miniconda/lib/python3.9/site-packages/astroquery/utils/class_or_instance.py:25[0m, in [0;36mclass_or_instance.__get__.<locals>.f[0;34m(*args, **kwds)[0m
 [1;32m     23[0m [38;5;28;01mdef[39;00m [38;5;21mf[39m([38;5;241m*[39margs, [38;5;241m*[39m[38;5;241m*[39mkwds):
@@ -119,14 +137,14 @@ File [0;32m/usr/share/miniconda/lib/python3.9/site-packages/astroquery/mast/obs
 [1;32m    290[0m     [38;5;28;01mif[39;00m [38;5;129;01mnot[39;00m mashup_filters:
 [1;32m    291[0m         [38;5;28;01mraise[39;00m InvalidQueryError([38;5;124m"[39m[38;5;124mAt least one non-positional criterion must be supplied.[39m[38;5;124m"[39m)
 
-File [0;32m/usr/share/miniconda/lib/python3.9/site-packages/astroquery/mast/observations.py:160[0m, in [0;36mObservationsClass._parse_caom_criteria[0;34m(self, **criteria)[0m
-[1;32m    158[0m [38;5;66;03m# Build the mashup filter object and store it in the correct service_name entry[39;00m
-[1;32m    159[0m [38;5;28;01mif[39;00m coordinates [38;5;129;01mor[39;00m objectname:
-[0;32m--> 160[0m     mashup_filters [38;5;241m=[39m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_portal_api_connection[49m[38;5;241;43m.[39;49m[43mbuild_filter_set[49m[43m([49m[38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_caom_cone[49m[43m,[49m
-[1;32m    161[0m [43m                                                    [49m[38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_caom_filtered_position[49m[43m,[49m
-[1;32m    162[0m [43m                                                    [49m[38;5;241;43m*[39;49m[38;5;241;43m*[39;49m[43mcriteria[49m[43m)[49m
+File [0;32m/usr/share/miniconda/lib/python3.9/site-packages/astroquery/mast/observations.py:165[0m, in [0;36mObservationsClass._parse_caom_criteria[0;34m(self, **criteria)[0m
 [1;32m    163[0m     coordinates [38;5;241m=[39m utils[38;5;241m.[39mparse_input_location(coordinates, objectname)
 [1;32m    164[0m [38;5;28;01melse[39;00m:
+[0;32m--> 165[0m     mashup_filters [38;5;241m=[39m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_portal_api_connection[49m[38;5;241;43m.[39;49m[43mbuild_filter_set[49m[43m([49m[38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_caom_cone[49m[43m,[49m
+[1;32m    166[0m [43m                                                    [49m[38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_caom_filtered[49m[43m,[49m
+[1;32m    167[0m [43m                                                    [49m[38;5;241;43m*[39;49m[38;5;241;43m*[39;49m[43mcriteria[49m[43m)[49m
+[1;32m    169[0m [38;5;66;03m# handle position info (if any)[39;00m
+[1;32m    170[0m position [38;5;241m=[39m [38;5;28;01mNone[39;00m
 
 File [0;32m/usr/share/miniconda/lib/python3.9/site-packages/astroquery/mast/discovery_portal.py:396[0m, in [0;36mPortalAPI.build_filter_set[0;34m(self, column_config_name, service_name, **filters)[0m
 [1;32m    393[0m     service_name [38;5;241m=[39m column_config_name

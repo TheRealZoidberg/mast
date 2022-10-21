@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Hubble Source Catalog SWEEPS Proper Motion Notebook &#8212; MAST repository template</title>
+    <title>Hubble Source Catalog SWEEPS Proper Motion Notebook &#8212; MAST Notebook Repository</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../../../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -97,10 +97,10 @@ const thebe_selector_output = ".output, .cell_output"
         
       
       
-      <img src="../../../../_static/logo.png" class="logo" alt="logo">
+      <img src="../../../../_static/mastlogo.png" class="logo" alt="logo">
       
       
-      <h1 class="site-logo" id="site-title">MAST repository template</h1>
+      <h1 class="site-logo" id="site-title">MAST Notebook Repository</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="../../../../search.html" method="get">
@@ -1329,7 +1329,7 @@ title="Print to PDF"
 </pre></div>
 </div>
 <div class="output text_html"><div><i>Table length=5</i>
-<table id="table139624495906720" class="table-striped table-bordered table-condensed">
+<table id="table140083885314208" class="table-striped table-bordered table-condensed">
 <thead><tr><th>name</th><th>type</th><th>description</th></tr></thead>
 <thead><tr><th>str16</th><th>str5</th><th>str31</th></tr></thead>
 <tr><td>objID</td><td>long</td><td>objID_descriptionTBD</td></tr>
@@ -1393,26 +1393,26 @@ These constraints can be modified depending on your science goals.</p>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>https://catalogs.mast.stsci.edu/api/v0.1/hsc/v3/propermotions.csv?pagesize=500000&amp;NumFilters.gt=1&amp;NumVisits.gt=9&amp;NumImages.gt=19&amp;columns=%5BObjID%2CraMean%2CdecMean%2CraMeanErr%2CdecMeanErr%2CNumFilters%2CNumVisits%2CpmLat%2CpmLon%2CpmLatErr%2CpmLonErr%2CpmLatDev%2CpmLonDev%2CepochMean%2CepochStart%2CepochEnd%5D
-14.3 s: retrieved data
+10.9 s: retrieved data
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>29.4 s: converted to astropy table
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>25.7 s: converted to astropy table
 </pre></div>
 </div>
 <div class="output text_html"><div><i>Table length=462899</i>
-<table id="table139624579841424" class="table-striped table-bordered table-condensed">
+<table id="table140082809638576" class="table-striped table-bordered table-condensed">
 <thead><tr><th>ObjID</th><th>RA</th><th>Dec</th><th>RAerr</th><th>Decerr</th><th>NumFilters</th><th>NumVisits</th><th>bpm</th><th>lpm</th><th>bpmerr</th><th>lpmerr</th><th>pmdev</th><th>yr</th><th>dT</th><th>yrStart</th><th>yrEnd</th></tr></thead>
 <thead><tr><th>int64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>int64</th><th>int64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th></tr></thead>
-<tr><td>4000709004606</td><td>269.84629586313974</td><td>-29.205012225579612</td><td>0.1804777404176204</td><td>0.1942655867410201</td><td>2</td><td>46</td><td>0.08288446362915312</td><td>-7.534903492418114</td><td>0.2498053343528448</td><td>0.19532495148314336</td><td>1.3183187355200694</td><td>2013.5152382701992</td><td>3.0067822490178155</td><td>2011.8013119543625</td><td>2014.8080942033803</td></tr>
-<tr><td>4000709004607</td><td>269.8483807976172</td><td>-29.205017328381853</td><td>0.1998813442184905</td><td>0.18617476332927618</td><td>2</td><td>46</td><td>4.7710397205613155</td><td>0.7062748610610339</td><td>0.295294382302276</td><td>0.13967274903879537</td><td>1.5045470250465274</td><td>2013.5152382701992</td><td>3.0067822490178155</td><td>2011.8013119543625</td><td>2014.8080942033803</td></tr>
-<tr><td>4000709004608</td><td>269.81335912859953</td><td>-29.20505248594459</td><td>0.3421588560023611</td><td>0.3605635308846969</td><td>2</td><td>47</td><td>0.623967194412774</td><td>-2.1970157335726785</td><td>0.21594991843453426</td><td>0.20399596286445945</td><td>2.7277523675585544</td><td>2013.3007902147058</td><td>11.371914541371764</td><td>2003.4361796620085</td><td>2014.8080942033803</td></tr>
-<tr><td>4000709004609</td><td>269.82526669583405</td><td>-29.205050848299805</td><td>0.3488300139478254</td><td>0.4116759865454261</td><td>2</td><td>47</td><td>1.0369686053154874</td><td>-7.980633883815872</td><td>0.17481083731440672</td><td>0.27098709209202554</td><td>2.113919325979643</td><td>2013.3007902147058</td><td>11.371914541371764</td><td>2003.4361796620085</td><td>2014.8080942033803</td></tr>
-<tr><td>4000709004610</td><td>269.8296308224566</td><td>-29.205052082430893</td><td>2.093848702221745</td><td>2.0060974104787377</td><td>2</td><td>22</td><td>-3.975865741448076</td><td>0.7669631091565676</td><td>1.970009289040443</td><td>2.4937115569748665</td><td>9.276395276735206</td><td>2013.3650490395582</td><td>2.93358308048173</td><td>2011.8013119543625</td><td>2014.7348950348442</td></tr>
-<tr><td>4000709004611</td><td>269.8157033469999</td><td>-29.205102428864034</td><td>27.886948698221257</td><td>4.082353243047675</td><td>2</td><td>46</td><td>-2.9662929491505747</td><td>1.8204328636747387</td><td>16.006851115393385</td><td>10.613069038297004</td><td>185.0148814163885</td><td>2013.390130657635</td><td>11.371914541371764</td><td>2003.4361796620085</td><td>2014.8080942033803</td></tr>
-<tr><td>4000709004612</td><td>269.84984289409994</td><td>-29.205051154479875</td><td>5.451298901102654</td><td>0.3950096738194534</td><td>2</td><td>13</td><td>-1.1703168155081791</td><td>-4.90040885826712</td><td>5.856966356908559</td><td>3.2399459074212897</td><td>10.081187317616843</td><td>2013.6090975657337</td><td>2.3433401499550426</td><td>2012.2040284838704</td><td>2014.5473686338253</td></tr>
-<tr><td>4000709004615</td><td>269.83732402150747</td><td>-29.205115935533748</td><td>4.428351705244977</td><td>16.581280887928347</td><td>2</td><td>30</td><td>3.3556123245090874</td><td>-9.446168092321889</td><td>6.933092225419921</td><td>18.37984583124396</td><td>65.08809040998516</td><td>2013.5951459859755</td><td>3.0067822490178155</td><td>2011.8013119543625</td><td>2014.8080942033803</td></tr>
-<tr><td>4000709004616</td><td>269.8207026377875</td><td>-29.205113196346897</td><td>0.9150326107647803</td><td>1.5187003232540628</td><td>2</td><td>42</td><td>0.6132876315339588</td><td>-5.059640983746341</td><td>0.7054897139103766</td><td>0.7231135457875808</td><td>8.011896893842845</td><td>2013.2534120566843</td><td>11.371914541371764</td><td>2003.4361796620085</td><td>2014.8080942033803</td></tr>
-<tr><td>4000709004617</td><td>269.8005624274871</td><td>-29.205000636160985</td><td>0.25343348919167985</td><td>0.26980204234123395</td><td>2</td><td>47</td><td>2.7103359766359825</td><td>-10.510153564721692</td><td>0.15288607024087159</td><td>0.15989280121450503</td><td>1.8997490588904624</td><td>2013.3007902147058</td><td>11.371914541371764</td><td>2003.4361796620085</td><td>2014.8080942033803</td></tr>
+<tr><td>4000709005181</td><td>269.8113107222242</td><td>-29.20480601951287</td><td>0.7466463208586221</td><td>0.713755538697197</td><td>2</td><td>47</td><td>-5.10451382895036</td><td>-5.89765116118147</td><td>0.34796288321079477</td><td>0.5098961714875785</td><td>5.305733887297259</td><td>2013.3007902147058</td><td>11.371914541371764</td><td>2003.4361796620085</td><td>2014.8080942033803</td></tr>
+<tr><td>4000709005182</td><td>269.8128664828206</td><td>-29.204703436509043</td><td>0.22367219770601376</td><td>0.2880988408089722</td><td>2</td><td>47</td><td>3.890337432221249</td><td>-9.359887667463227</td><td>0.1023454323344</td><td>0.19245658998046872</td><td>1.4410089918316646</td><td>2013.3007902147058</td><td>11.371914541371764</td><td>2003.4361796620085</td><td>2014.8080942033803</td></tr>
+<tr><td>4000709005183</td><td>269.81521901829785</td><td>-29.204805241533627</td><td>0.33939100260617633</td><td>0.5394702382535801</td><td>2</td><td>47</td><td>1.1397477459634553</td><td>-6.299159421729623</td><td>0.22428281489497698</td><td>0.3078698971722789</td><td>3.0019847179800347</td><td>2013.3007902147058</td><td>11.371914541371764</td><td>2003.4361796620085</td><td>2014.8080942033803</td></tr>
+<tr><td>4000709005184</td><td>269.8135840655936</td><td>-29.20484224844016</td><td>1.046155306077776</td><td>1.109958826179154</td><td>2</td><td>46</td><td>2.0066237101659845</td><td>-6.87402212364306</td><td>0.6710984632828194</td><td>0.6142719744395518</td><td>7.780904914519469</td><td>2013.3333875681915</td><td>11.371914541371764</td><td>2003.4361796620085</td><td>2014.8080942033803</td></tr>
+<tr><td>4000709005185</td><td>269.8318125502752</td><td>-29.204834834195</td><td>1.6505626500483992</td><td>1.2957974426933525</td><td>2</td><td>33</td><td>-2.1191635793690704</td><td>-11.256039556869194</td><td>1.9603798808610258</td><td>1.881822042900905</td><td>8.549975059183776</td><td>2013.6336087653433</td><td>2.4349723374579435</td><td>2012.3433359800624</td><td>2014.7783083175204</td></tr>
+<tr><td>4000709005186</td><td>269.8387558085273</td><td>-29.20483194787105</td><td>1.1109094101908312</td><td>1.7268787328882316</td><td>2</td><td>44</td><td>-0.9736207737749203</td><td>-7.728563387215342</td><td>1.23123088968054</td><td>2.150929109093123</td><td>10.987329625446108</td><td>2013.5219319766793</td><td>3.0067822490178155</td><td>2011.8013119543625</td><td>2014.8080942033803</td></tr>
+<tr><td>4000709005187</td><td>269.8153494657498</td><td>-29.20465930582853</td><td>2.4968225508208053</td><td>13.873605184546227</td><td>2</td><td>39</td><td>-1.367980570643435</td><td>-5.5378208295456925</td><td>3.9030314156050387</td><td>7.0967554951513625</td><td>75.7027436919891</td><td>2013.2038248178687</td><td>11.371914541371764</td><td>2003.4361796620085</td><td>2014.8080942033803</td></tr>
+<tr><td>4000709005188</td><td>269.78670608428894</td><td>-29.204656790215285</td><td>0.8063310977126443</td><td>0.6816889134899603</td><td>2</td><td>48</td><td>-5.029307843964451</td><td>-6.455965972379338</td><td>0.5276755748878863</td><td>0.35800808272493506</td><td>4.656701321712595</td><td>2013.303640830872</td><td>11.371914541371764</td><td>2003.4361796620085</td><td>2014.8080942033803</td></tr>
+<tr><td>4000709005189</td><td>269.8415079333277</td><td>-29.20463135388953</td><td>0.27843951661041333</td><td>0.8673983927001542</td><td>2</td><td>46</td><td>3.7504756809405118</td><td>-2.6724340883915376</td><td>0.40903625761197016</td><td>1.009737427955268</td><td>4.23300311964119</td><td>2013.5152382701992</td><td>3.0067822490178155</td><td>2011.8013119543625</td><td>2014.8080942033803</td></tr>
+<tr><td>4000709005190</td><td>269.78980540363534</td><td>-29.20471801940763</td><td>0.2506038108867054</td><td>0.19975911813574576</td><td>2</td><td>47</td><td>1.436968299372853</td><td>0.08325099492665194</td><td>0.13736699866416605</td><td>0.13346799444180982</td><td>1.6406234814206895</td><td>2013.3007902147058</td><td>11.371914541371764</td><td>2003.4361796620085</td><td>2014.8080942033803</td></tr>
 <tr><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td></tr>
 <tr><td>4000805716072</td><td>269.75349922919384</td><td>-29.18723752907607</td><td>2.225441886958637</td><td>0.782317518968335</td><td>11</td><td>17</td><td>0.7682489073323565</td><td>-9.094933073371836</td><td>1.0521212702413032</td><td>0.5895653517979129</td><td>4.37247648972029</td><td>2014.4109706368163</td><td>5.219308377861273</td><td>2010.356355274077</td><td>2015.5756636519384</td></tr>
 <tr><td>4000805716573</td><td>269.74337423557154</td><td>-29.187417348173906</td><td>2.2057221630623087</td><td>1.9380676063030071</td><td>3</td><td>13</td><td>-1.7246226034552836</td><td>-3.772286208288804</td><td>1.9666791745656962</td><td>0.9077857821690272</td><td>7.275300815521908</td><td>2013.3270090436067</td><td>5.216772221613989</td><td>2010.356355274077</td><td>2015.573127495691</td></tr>
@@ -1551,7 +1551,7 @@ These constraints can be modified depending on your science goals.</p>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>kde took 2.1 sec
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Plotting 190266 of 461199 points
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Plotting 182171 of 461199 points
 </pre></div>
 </div>
 </div>
@@ -1775,7 +1775,6 @@ These constraints can be modified depending on your science goals.</p>
 <img alt="../../../../_images/sweeps_hscv3p1_api_37_18.png" src="../../../../_images/sweeps_hscv3p1_api_37_18.png" />
 <img alt="../../../../_images/sweeps_hscv3p1_api_37_19.png" src="../../../../_images/sweeps_hscv3p1_api_37_19.png" />
 <img alt="../../../../_images/sweeps_hscv3p1_api_37_20.png" src="../../../../_images/sweeps_hscv3p1_api_37_20.png" />
-<img alt="../../../../_images/sweeps_hscv3p1_api_37_21.png" src="../../../../_images/sweeps_hscv3p1_api_37_21.png" />
 </div>
 </div>
 </section>
@@ -1806,202 +1805,6 @@ Proper motions are measured relative to the Galactic center.</p>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Plotting </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">wpmh</span><span class="p">)</span><span class="si">}</span><span class="s2"> objects&quot;</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">o</span> <span class="ow">in</span> <span class="n">tab</span><span class="p">[</span><span class="s2">&quot;ObjID&quot;</span><span class="p">][</span><span class="n">wpmh</span><span class="p">]:</span>
     <span class="n">positions</span><span class="p">(</span><span class="n">o</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Plotting 31 objects
-</pre></div>
-</div>
-<img alt="../../../../_images/sweeps_hscv3p1_api_40_1.png" src="../../../../_images/sweeps_hscv3p1_api_40_1.png" />
-<img alt="../../../../_images/sweeps_hscv3p1_api_40_2.png" src="../../../../_images/sweeps_hscv3p1_api_40_2.png" />
-<img alt="../../../../_images/sweeps_hscv3p1_api_40_3.png" src="../../../../_images/sweeps_hscv3p1_api_40_3.png" />
-<img alt="../../../../_images/sweeps_hscv3p1_api_40_4.png" src="../../../../_images/sweeps_hscv3p1_api_40_4.png" />
-<img alt="../../../../_images/sweeps_hscv3p1_api_40_5.png" src="../../../../_images/sweeps_hscv3p1_api_40_5.png" />
-<img alt="../../../../_images/sweeps_hscv3p1_api_40_6.png" src="../../../../_images/sweeps_hscv3p1_api_40_6.png" />
-<img alt="../../../../_images/sweeps_hscv3p1_api_40_7.png" src="../../../../_images/sweeps_hscv3p1_api_40_7.png" />
-<img alt="../../../../_images/sweeps_hscv3p1_api_40_8.png" src="../../../../_images/sweeps_hscv3p1_api_40_8.png" />
-<img alt="../../../../_images/sweeps_hscv3p1_api_40_9.png" src="../../../../_images/sweeps_hscv3p1_api_40_9.png" />
-<img alt="../../../../_images/sweeps_hscv3p1_api_40_10.png" src="../../../../_images/sweeps_hscv3p1_api_40_10.png" />
-<img alt="../../../../_images/sweeps_hscv3p1_api_40_11.png" src="../../../../_images/sweeps_hscv3p1_api_40_11.png" />
-<img alt="../../../../_images/sweeps_hscv3p1_api_40_12.png" src="../../../../_images/sweeps_hscv3p1_api_40_12.png" />
-<img alt="../../../../_images/sweeps_hscv3p1_api_40_13.png" src="../../../../_images/sweeps_hscv3p1_api_40_13.png" />
-<img alt="../../../../_images/sweeps_hscv3p1_api_40_14.png" src="../../../../_images/sweeps_hscv3p1_api_40_14.png" />
-<img alt="../../../../_images/sweeps_hscv3p1_api_40_15.png" src="../../../../_images/sweeps_hscv3p1_api_40_15.png" />
-<img alt="../../../../_images/sweeps_hscv3p1_api_40_16.png" src="../../../../_images/sweeps_hscv3p1_api_40_16.png" />
-<img alt="../../../../_images/sweeps_hscv3p1_api_40_17.png" src="../../../../_images/sweeps_hscv3p1_api_40_17.png" />
-<img alt="../../../../_images/sweeps_hscv3p1_api_40_18.png" src="../../../../_images/sweeps_hscv3p1_api_40_18.png" />
-<img alt="../../../../_images/sweeps_hscv3p1_api_40_19.png" src="../../../../_images/sweeps_hscv3p1_api_40_19.png" />
-<img alt="../../../../_images/sweeps_hscv3p1_api_40_20.png" src="../../../../_images/sweeps_hscv3p1_api_40_20.png" />
-<img alt="../../../../_images/sweeps_hscv3p1_api_40_21.png" src="../../../../_images/sweeps_hscv3p1_api_40_21.png" />
-<img alt="../../../../_images/sweeps_hscv3p1_api_40_22.png" src="../../../../_images/sweeps_hscv3p1_api_40_22.png" />
-<img alt="../../../../_images/sweeps_hscv3p1_api_40_23.png" src="../../../../_images/sweeps_hscv3p1_api_40_23.png" />
-<img alt="../../../../_images/sweeps_hscv3p1_api_40_24.png" src="../../../../_images/sweeps_hscv3p1_api_40_24.png" />
-<img alt="../../../../_images/sweeps_hscv3p1_api_40_25.png" src="../../../../_images/sweeps_hscv3p1_api_40_25.png" />
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span> <span class="p">[</span><span class="mi">19</span><span class="p">],</span> <span class="n">line</span> <span class="mi">18</span>
-<span class="g g-Whitespace">     </span><span class="mi">16</span> <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Plotting </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">wpmh</span><span class="p">)</span><span class="si">}</span><span class="s2"> objects&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">17</span> <span class="k">for</span> <span class="n">o</span> <span class="ow">in</span> <span class="n">tab</span><span class="p">[</span><span class="s2">&quot;ObjID&quot;</span><span class="p">][</span><span class="n">wpmh</span><span class="p">]:</span>
-<span class="ne">---&gt; </span><span class="mi">18</span>     <span class="n">positions</span><span class="p">(</span><span class="n">o</span><span class="p">)</span>
-
-<span class="nn">Cell In [17], line 11,</span> in <span class="ni">positions</span><span class="nt">(Obj)</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="sd">&quot;&quot;&quot;</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span><span class="sd"> input parameter Obj is the value of the ObjID </span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span><span class="sd"> output plots change in (lon, lat) as a function of time</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span><span class="sd"> overplots proper motion fit</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span><span class="sd"> provides ObjID and proper motion information in labels</span>
-<span class="g g-Whitespace">      </span><span class="mi">8</span><span class="sd"> &quot;&quot;&quot;</span>
-<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="c1"># get the measured positions as a function of time</span>
-<span class="ne">---&gt; </span><span class="mi">11</span> <span class="n">pos</span> <span class="o">=</span> <span class="n">ascii</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">hscsearch</span><span class="p">(</span><span class="s2">&quot;sourcepositions&quot;</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="s2">&quot;dT,dLon,dLat&quot;</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">),</span> <span class="n">objid</span><span class="o">=</span><span class="n">Obj</span><span class="p">))</span>
-<span class="g g-Whitespace">     </span><span class="mi">12</span> <span class="n">pos</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="s1">&#39;dT&#39;</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">14</span> <span class="c1"># get the PM fit parameters</span>
-
-<span class="nn">Cell In [3], line 71,</span> in <span class="ni">hscsearch</span><span class="nt">(table, release, magtype, format, columns, baseurl, verbose, **kw)</span>
-<span class="g g-Whitespace">     </span><span class="mi">67</span>     <span class="n">data</span><span class="p">[</span><span class="s1">&#39;columns&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;[</span><span class="si">{</span><span class="s1">&#39;,&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">columns</span><span class="p">)</span><span class="si">}</span><span class="s2">]&quot;</span>
-<span class="g g-Whitespace">     </span><span class="mi">69</span> <span class="c1"># either get or post works</span>
-<span class="g g-Whitespace">     </span><span class="mi">70</span> <span class="c1"># r = requests.post(url, data=data)</span>
-<span class="ne">---&gt; </span><span class="mi">71</span> <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">73</span> <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
-<span class="g g-Whitespace">     </span><span class="mi">74</span>     <span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">url</span><span class="p">)</span>
-
-<span class="nn">File /usr/share/miniconda/lib/python3.9/site-packages/requests/api.py:75,</span> in <span class="ni">get</span><span class="nt">(url, params, **kwargs)</span>
-<span class="g g-Whitespace">     </span><span class="mi">64</span> <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-<span class="g g-Whitespace">     </span><span class="mi">65</span>     <span class="sa">r</span><span class="sd">&quot;&quot;&quot;Sends a GET request.</span>
-<span class="g g-Whitespace">     </span><span class="mi">66</span><span class="sd"> </span>
-<span class="g g-Whitespace">     </span><span class="mi">67</span><span class="sd">     :param url: URL for the new :class:`Request` object.</span>
-<span class="sd">   (...)</span>
-<span class="g g-Whitespace">     </span><span class="mi">72</span><span class="sd">     :rtype: requests.Response</span>
-<span class="g g-Whitespace">     </span><span class="mi">73</span><span class="sd">     &quot;&quot;&quot;</span>
-<span class="ne">---&gt; </span><span class="mi">75</span>     <span class="k">return</span> <span class="n">request</span><span class="p">(</span><span class="s1">&#39;get&#39;</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-
-<span class="nn">File /usr/share/miniconda/lib/python3.9/site-packages/requests/api.py:61,</span> in <span class="ni">request</span><span class="nt">(method, url, **kwargs)</span>
-<span class="g g-Whitespace">     </span><span class="mi">57</span> <span class="c1"># By using the &#39;with&#39; statement we are sure the session is closed, thus we</span>
-<span class="g g-Whitespace">     </span><span class="mi">58</span> <span class="c1"># avoid leaving sockets open which can trigger a ResourceWarning in some</span>
-<span class="g g-Whitespace">     </span><span class="mi">59</span> <span class="c1"># cases, and look like a memory leak in others.</span>
-<span class="g g-Whitespace">     </span><span class="mi">60</span> <span class="k">with</span> <span class="n">sessions</span><span class="o">.</span><span class="n">Session</span><span class="p">()</span> <span class="k">as</span> <span class="n">session</span><span class="p">:</span>
-<span class="ne">---&gt; </span><span class="mi">61</span>     <span class="k">return</span> <span class="n">session</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="n">method</span><span class="p">,</span> <span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-
-<span class="nn">File /usr/share/miniconda/lib/python3.9/site-packages/requests/sessions.py:529,</span> in <span class="ni">Session.request</span><span class="nt">(self, method, url, params, data, headers, cookies, files, auth, timeout, allow_redirects, proxies, hooks, stream, verify, cert, json)</span>
-<span class="g g-Whitespace">    </span><span class="mi">524</span> <span class="n">send_kwargs</span> <span class="o">=</span> <span class="p">{</span>
-<span class="g g-Whitespace">    </span><span class="mi">525</span>     <span class="s1">&#39;timeout&#39;</span><span class="p">:</span> <span class="n">timeout</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">526</span>     <span class="s1">&#39;allow_redirects&#39;</span><span class="p">:</span> <span class="n">allow_redirects</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">527</span> <span class="p">}</span>
-<span class="g g-Whitespace">    </span><span class="mi">528</span> <span class="n">send_kwargs</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">settings</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">529</span> <span class="n">resp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">prep</span><span class="p">,</span> <span class="o">**</span><span class="n">send_kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">531</span> <span class="k">return</span> <span class="n">resp</span>
-
-<span class="nn">File /usr/share/miniconda/lib/python3.9/site-packages/requests/sessions.py:645,</span> in <span class="ni">Session.send</span><span class="nt">(self, request, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">642</span> <span class="n">start</span> <span class="o">=</span> <span class="n">preferred_clock</span><span class="p">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">644</span> <span class="c1"># Send the request</span>
-<span class="ne">--&gt; </span><span class="mi">645</span> <span class="n">r</span> <span class="o">=</span> <span class="n">adapter</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">647</span> <span class="c1"># Total elapsed time of the request (approximately)</span>
-<span class="g g-Whitespace">    </span><span class="mi">648</span> <span class="n">elapsed</span> <span class="o">=</span> <span class="n">preferred_clock</span><span class="p">()</span> <span class="o">-</span> <span class="n">start</span>
-
-<span class="nn">File /usr/share/miniconda/lib/python3.9/site-packages/requests/adapters.py:440,</span> in <span class="ni">HTTPAdapter.send</span><span class="nt">(self, request, stream, timeout, verify, cert, proxies)</span>
-<span class="g g-Whitespace">    </span><span class="mi">438</span> <span class="k">try</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">439</span>     <span class="k">if</span> <span class="ow">not</span> <span class="n">chunked</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">440</span>         <span class="n">resp</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">441</span>             <span class="n">method</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">method</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">442</span>             <span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">443</span>             <span class="n">body</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">body</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">444</span>             <span class="n">headers</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">headers</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">445</span>             <span class="n">redirect</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">446</span>             <span class="n">assert_same_host</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">447</span>             <span class="n">preload_content</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">448</span>             <span class="n">decode_content</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">449</span>             <span class="n">retries</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">max_retries</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">450</span>             <span class="n">timeout</span><span class="o">=</span><span class="n">timeout</span>
-<span class="g g-Whitespace">    </span><span class="mi">451</span>         <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">453</span>     <span class="c1"># Send the request.</span>
-<span class="g g-Whitespace">    </span><span class="mi">454</span>     <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">455</span>         <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">conn</span><span class="p">,</span> <span class="s1">&#39;proxy_pool&#39;</span><span class="p">):</span>
-
-<span class="nn">File /usr/share/miniconda/lib/python3.9/site-packages/urllib3/connectionpool.py:703,</span> in <span class="ni">HTTPConnectionPool.urlopen</span><span class="nt">(self, method, url, body, headers, retries, redirect, assert_same_host, timeout, pool_timeout, release_conn, chunked, body_pos, **response_kw)</span>
-<span class="g g-Whitespace">    </span><span class="mi">700</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_prepare_proxy</span><span class="p">(</span><span class="n">conn</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">702</span> <span class="c1"># Make the request on the httplib connection object.</span>
-<span class="ne">--&gt; </span><span class="mi">703</span> <span class="n">httplib_response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_make_request</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">704</span>     <span class="n">conn</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">705</span>     <span class="n">method</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">706</span>     <span class="n">url</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">707</span>     <span class="n">timeout</span><span class="o">=</span><span class="n">timeout_obj</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">708</span>     <span class="n">body</span><span class="o">=</span><span class="n">body</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">709</span>     <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">710</span>     <span class="n">chunked</span><span class="o">=</span><span class="n">chunked</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">711</span> <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">713</span> <span class="c1"># If we&#39;re going to release the connection in ``finally:``, then</span>
-<span class="g g-Whitespace">    </span><span class="mi">714</span> <span class="c1"># the response doesn&#39;t need to know about the connection. Otherwise</span>
-<span class="g g-Whitespace">    </span><span class="mi">715</span> <span class="c1"># it will also try to release it and we&#39;ll have a double-release</span>
-<span class="g g-Whitespace">    </span><span class="mi">716</span> <span class="c1"># mess.</span>
-<span class="g g-Whitespace">    </span><span class="mi">717</span> <span class="n">response_conn</span> <span class="o">=</span> <span class="n">conn</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">release_conn</span> <span class="k">else</span> <span class="kc">None</span>
-
-<span class="nn">File /usr/share/miniconda/lib/python3.9/site-packages/urllib3/connectionpool.py:449,</span> in <span class="ni">HTTPConnectionPool._make_request</span><span class="nt">(self, conn, method, url, timeout, chunked, **httplib_request_kw)</span>
-<span class="g g-Whitespace">    </span><span class="mi">444</span>             <span class="n">httplib_response</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">getresponse</span><span class="p">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">445</span>         <span class="k">except</span> <span class="ne">BaseException</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">446</span>             <span class="c1"># Remove the TypeError from the exception chain in</span>
-<span class="g g-Whitespace">    </span><span class="mi">447</span>             <span class="c1"># Python 3 (including for exceptions like SystemExit).</span>
-<span class="g g-Whitespace">    </span><span class="mi">448</span>             <span class="c1"># Otherwise it looks like a bug in the code.</span>
-<span class="ne">--&gt; </span><span class="mi">449</span>             <span class="n">six</span><span class="o">.</span><span class="n">raise_from</span><span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">450</span> <span class="k">except</span> <span class="p">(</span><span class="n">SocketTimeout</span><span class="p">,</span> <span class="n">BaseSSLError</span><span class="p">,</span> <span class="n">SocketError</span><span class="p">)</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">451</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_raise_timeout</span><span class="p">(</span><span class="n">err</span><span class="o">=</span><span class="n">e</span><span class="p">,</span> <span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">,</span> <span class="n">timeout_value</span><span class="o">=</span><span class="n">read_timeout</span><span class="p">)</span>
-
-<span class="nn">File &lt;string&gt;:3,</span> in <span class="ni">raise_from</span><span class="nt">(value, from_value)</span>
-
-<span class="nn">File /usr/share/miniconda/lib/python3.9/site-packages/urllib3/connectionpool.py:444,</span> in <span class="ni">HTTPConnectionPool._make_request</span><span class="nt">(self, conn, method, url, timeout, chunked, **httplib_request_kw)</span>
-<span class="g g-Whitespace">    </span><span class="mi">441</span> <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">442</span>     <span class="c1"># Python 3</span>
-<span class="g g-Whitespace">    </span><span class="mi">443</span>     <span class="k">try</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">444</span>         <span class="n">httplib_response</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">getresponse</span><span class="p">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">445</span>     <span class="k">except</span> <span class="ne">BaseException</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">446</span>         <span class="c1"># Remove the TypeError from the exception chain in</span>
-<span class="g g-Whitespace">    </span><span class="mi">447</span>         <span class="c1"># Python 3 (including for exceptions like SystemExit).</span>
-<span class="g g-Whitespace">    </span><span class="mi">448</span>         <span class="c1"># Otherwise it looks like a bug in the code.</span>
-<span class="g g-Whitespace">    </span><span class="mi">449</span>         <span class="n">six</span><span class="o">.</span><span class="n">raise_from</span><span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
-
-<span class="nn">File /usr/share/miniconda/lib/python3.9/http/client.py:1377,</span> in <span class="ni">HTTPConnection.getresponse</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1375</span> <span class="k">try</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1376</span>     <span class="k">try</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">1377</span>         <span class="n">response</span><span class="o">.</span><span class="n">begin</span><span class="p">()</span>
-<span class="g g-Whitespace">   </span><span class="mi">1378</span>     <span class="k">except</span> <span class="ne">ConnectionError</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1379</span>         <span class="bp">self</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-
-<span class="nn">File /usr/share/miniconda/lib/python3.9/http/client.py:320,</span> in <span class="ni">HTTPResponse.begin</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">    </span><span class="mi">318</span> <span class="c1"># read until we get a non-100 response</span>
-<span class="g g-Whitespace">    </span><span class="mi">319</span> <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">320</span>     <span class="n">version</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">reason</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_read_status</span><span class="p">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">321</span>     <span class="k">if</span> <span class="n">status</span> <span class="o">!=</span> <span class="n">CONTINUE</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">322</span>         <span class="k">break</span>
-
-<span class="nn">File /usr/share/miniconda/lib/python3.9/http/client.py:281,</span> in <span class="ni">HTTPResponse._read_status</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">    </span><span class="mi">280</span> <span class="k">def</span> <span class="nf">_read_status</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="ne">--&gt; </span><span class="mi">281</span>     <span class="n">line</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fp</span><span class="o">.</span><span class="n">readline</span><span class="p">(</span><span class="n">_MAXLINE</span> <span class="o">+</span> <span class="mi">1</span><span class="p">),</span> <span class="s2">&quot;iso-8859-1&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">282</span>     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">line</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">_MAXLINE</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">283</span>         <span class="k">raise</span> <span class="n">LineTooLong</span><span class="p">(</span><span class="s2">&quot;status line&quot;</span><span class="p">)</span>
-
-<span class="nn">File /usr/share/miniconda/lib/python3.9/socket.py:704,</span> in <span class="ni">SocketIO.readinto</span><span class="nt">(self, b)</span>
-<span class="g g-Whitespace">    </span><span class="mi">702</span> <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">703</span>     <span class="k">try</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">704</span>         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sock</span><span class="o">.</span><span class="n">recv_into</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">705</span>     <span class="k">except</span> <span class="n">timeout</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">706</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_timeout_occurred</span> <span class="o">=</span> <span class="kc">True</span>
-
-<span class="nn">File /usr/share/miniconda/lib/python3.9/ssl.py:1241,</span> in <span class="ni">SSLSocket.recv_into</span><span class="nt">(self, buffer, nbytes, flags)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1237</span>     <span class="k">if</span> <span class="n">flags</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1238</span>         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
-<span class="g g-Whitespace">   </span><span class="mi">1239</span>           <span class="s2">&quot;non-zero flags not allowed in calls to recv_into() on </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span>
-<span class="g g-Whitespace">   </span><span class="mi">1240</span>           <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="p">)</span>
-<span class="ne">-&gt; </span><span class="mi">1241</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">nbytes</span><span class="p">,</span> <span class="n">buffer</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1242</span> <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1243</span>     <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">recv_into</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span> <span class="n">nbytes</span><span class="p">,</span> <span class="n">flags</span><span class="p">)</span>
-
-<span class="nn">File /usr/share/miniconda/lib/python3.9/ssl.py:1099,</span> in <span class="ni">SSLSocket.read</span><span class="nt">(self, len, buffer)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1097</span> <span class="k">try</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1098</span>     <span class="k">if</span> <span class="n">buffer</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">1099</span>         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sslobj</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="nb">len</span><span class="p">,</span> <span class="n">buffer</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1100</span>     <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1101</span>         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sslobj</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="nb">len</span><span class="p">)</span>
-
-<span class="ne">KeyboardInterrupt</span>: 
 </pre></div>
 </div>
 </div>
