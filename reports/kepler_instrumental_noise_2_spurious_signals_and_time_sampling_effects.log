@@ -32,6 +32,14 @@ nbclient.exceptions.CellTimeoutError: A cell timed out while it was being execut
 The message was: Cell execution timed out.
 Here is a preview of the cell contents:
 -------------------
-lc = lk.search_lightcurve('KIC 6185476', cadence='long').download_all().stitch()
+lc_scsf = lk.search_lightcurve('KIC 11182716', mission='kepler', author='kepler', cadence='short').download_all().stitch()
+ax = lc_scsf.remove_outliers().to_periodogram().plot()
+
+for i in range(8):
+  i+=1 
+  if i == 8:
+    ax.annotate('', xy=(i*48.94, 1.1e-5), xytext=(i*48.94, 3e-5), arrowprops=dict(arrowstyle='->', color='r', linewidth=1.5))
+  else:
+    ax.annotate('', xy=(i*48.94, 1.1e-5), xytext=(i*48.94, 3e-5), arrowprops=dict(arrowstyle='->', color='r', linewidth=1.5, alpha=0.5))
 -------------------
 

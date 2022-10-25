@@ -1329,7 +1329,7 @@ title="Print to PDF"
 </pre></div>
 </div>
 <div class="output text_html"><div><i>Table length=5</i>
-<table id="table140083885314208" class="table-striped table-bordered table-condensed">
+<table id="table140151835035200" class="table-striped table-bordered table-condensed">
 <thead><tr><th>name</th><th>type</th><th>description</th></tr></thead>
 <thead><tr><th>str16</th><th>str5</th><th>str31</th></tr></thead>
 <tr><td>objID</td><td>long</td><td>objID_descriptionTBD</td></tr>
@@ -1393,38 +1393,49 @@ These constraints can be modified depending on your science goals.</p>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>https://catalogs.mast.stsci.edu/api/v0.1/hsc/v3/propermotions.csv?pagesize=500000&amp;NumFilters.gt=1&amp;NumVisits.gt=9&amp;NumImages.gt=19&amp;columns=%5BObjID%2CraMean%2CdecMean%2CraMeanErr%2CdecMeanErr%2CNumFilters%2CNumVisits%2CpmLat%2CpmLon%2CpmLatErr%2CpmLonErr%2CpmLatDev%2CpmLonDev%2CepochMean%2CepochStart%2CepochEnd%5D
-10.9 s: retrieved data
+11.9 s: retrieved data
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>25.7 s: converted to astropy table
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span> <span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">line</span> <span class="mi">17</span>
+<span class="g g-Whitespace">     </span><span class="mi">15</span> <span class="n">results</span> <span class="o">=</span> <span class="n">hscsearch</span><span class="p">(</span><span class="n">table</span><span class="o">=</span><span class="s2">&quot;propermotions&quot;</span><span class="p">,</span> <span class="n">release</span><span class="o">=</span><span class="s1">&#39;v3&#39;</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">columns</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">pagesize</span><span class="o">=</span><span class="mi">500000</span><span class="p">,</span> <span class="o">**</span><span class="n">constraints</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">16</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{:.1f}</span><span class="s2"> s: retrieved data&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span><span class="o">-</span><span class="n">t0</span><span class="p">))</span>
+<span class="ne">---&gt; </span><span class="mi">17</span> <span class="n">tab</span> <span class="o">=</span> <span class="n">ascii</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">18</span> <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span><span class="o">-</span><span class="n">t0</span><span class="p">)</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> s: converted to astropy table&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">20</span> <span class="c1"># change some column names for consistency with the Casjobs version of this notebook</span>
+
+<span class="nn">File /usr/share/miniconda/lib/python3.9/site-packages/astropy/io/ascii/ui.py:359,</span> in <span class="ni">read</span><span class="nt">(table, guess, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">353</span>             <span class="n">new_kwargs</span><span class="p">[</span><span class="s1">&#39;guess_html&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">_probably_html</span><span class="p">(</span><span class="n">table</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">355</span> <span class="c1"># Get the table from guess in ``dat``.  If ``dat`` comes back as None</span>
+<span class="g g-Whitespace">    </span><span class="mi">356</span> <span class="c1"># then there was just one set of kwargs in the guess list so fall</span>
+<span class="g g-Whitespace">    </span><span class="mi">357</span> <span class="c1"># through below to the non-guess way so that any problems result in a</span>
+<span class="g g-Whitespace">    </span><span class="mi">358</span> <span class="c1"># more useful traceback.</span>
+<span class="ne">--&gt; </span><span class="mi">359</span> <span class="n">dat</span> <span class="o">=</span> <span class="n">_guess</span><span class="p">(</span><span class="n">table</span><span class="p">,</span> <span class="n">new_kwargs</span><span class="p">,</span> <span class="nb">format</span><span class="p">,</span> <span class="n">fast_reader</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">360</span> <span class="k">if</span> <span class="n">dat</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">361</span>     <span class="n">guess</span> <span class="o">=</span> <span class="kc">False</span>
+
+<span class="nn">File /usr/share/miniconda/lib/python3.9/site-packages/astropy/io/ascii/ui.py:526,</span> in <span class="ni">_guess</span><span class="nt">(table, read_kwargs, format, fast_reader)</span>
+<span class="g g-Whitespace">    </span><span class="mi">523</span> <span class="n">reader</span> <span class="o">=</span> <span class="n">get_reader</span><span class="p">(</span><span class="o">**</span><span class="n">guess_kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">525</span> <span class="n">reader</span><span class="o">.</span><span class="n">guessing</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="ne">--&gt; </span><span class="mi">526</span> <span class="n">dat</span> <span class="o">=</span> <span class="n">reader</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">table</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">527</span> <span class="n">_read_trace</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s1">&#39;kwargs&#39;</span><span class="p">:</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">guess_kwargs</span><span class="p">),</span>
+<span class="g g-Whitespace">    </span><span class="mi">528</span>                     <span class="s1">&#39;Reader&#39;</span><span class="p">:</span> <span class="n">reader</span><span class="o">.</span><span class="vm">__class__</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">529</span>                     <span class="s1">&#39;status&#39;</span><span class="p">:</span> <span class="s1">&#39;Success (guessing)&#39;</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">530</span>                     <span class="s1">&#39;dt&#39;</span><span class="p">:</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">t0</span><span class="p">)</span> <span class="o">*</span> <span class="mi">1000</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1"> ms&#39;</span><span class="p">})</span>
+<span class="g g-Whitespace">    </span><span class="mi">531</span> <span class="k">return</span> <span class="n">dat</span>
+
+<span class="nn">File /usr/share/miniconda/lib/python3.9/site-packages/astropy/io/ascii/fastbasic.py:128,</span> in <span class="ni">FastBasic.read</span><span class="nt">(self, table)</span>
+<span class="g g-Whitespace">    </span><span class="mi">125</span>     <span class="n">try_string</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="g g-Whitespace">    </span><span class="mi">127</span> <span class="k">with</span> <span class="n">_set_locale</span><span class="p">(</span><span class="s1">&#39;C&#39;</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">128</span>     <span class="n">data</span><span class="p">,</span> <span class="n">comments</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">engine</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">try_int</span><span class="p">,</span> <span class="n">try_float</span><span class="p">,</span> <span class="n">try_string</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">129</span> <span class="n">out</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">make_table</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">comments</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">131</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">return_header_chars</span><span class="p">:</span>
+
+<span class="ne">KeyboardInterrupt</span>: 
 </pre></div>
 </div>
-<div class="output text_html"><div><i>Table length=462899</i>
-<table id="table140082809638576" class="table-striped table-bordered table-condensed">
-<thead><tr><th>ObjID</th><th>RA</th><th>Dec</th><th>RAerr</th><th>Decerr</th><th>NumFilters</th><th>NumVisits</th><th>bpm</th><th>lpm</th><th>bpmerr</th><th>lpmerr</th><th>pmdev</th><th>yr</th><th>dT</th><th>yrStart</th><th>yrEnd</th></tr></thead>
-<thead><tr><th>int64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>int64</th><th>int64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th></tr></thead>
-<tr><td>4000709005181</td><td>269.8113107222242</td><td>-29.20480601951287</td><td>0.7466463208586221</td><td>0.713755538697197</td><td>2</td><td>47</td><td>-5.10451382895036</td><td>-5.89765116118147</td><td>0.34796288321079477</td><td>0.5098961714875785</td><td>5.305733887297259</td><td>2013.3007902147058</td><td>11.371914541371764</td><td>2003.4361796620085</td><td>2014.8080942033803</td></tr>
-<tr><td>4000709005182</td><td>269.8128664828206</td><td>-29.204703436509043</td><td>0.22367219770601376</td><td>0.2880988408089722</td><td>2</td><td>47</td><td>3.890337432221249</td><td>-9.359887667463227</td><td>0.1023454323344</td><td>0.19245658998046872</td><td>1.4410089918316646</td><td>2013.3007902147058</td><td>11.371914541371764</td><td>2003.4361796620085</td><td>2014.8080942033803</td></tr>
-<tr><td>4000709005183</td><td>269.81521901829785</td><td>-29.204805241533627</td><td>0.33939100260617633</td><td>0.5394702382535801</td><td>2</td><td>47</td><td>1.1397477459634553</td><td>-6.299159421729623</td><td>0.22428281489497698</td><td>0.3078698971722789</td><td>3.0019847179800347</td><td>2013.3007902147058</td><td>11.371914541371764</td><td>2003.4361796620085</td><td>2014.8080942033803</td></tr>
-<tr><td>4000709005184</td><td>269.8135840655936</td><td>-29.20484224844016</td><td>1.046155306077776</td><td>1.109958826179154</td><td>2</td><td>46</td><td>2.0066237101659845</td><td>-6.87402212364306</td><td>0.6710984632828194</td><td>0.6142719744395518</td><td>7.780904914519469</td><td>2013.3333875681915</td><td>11.371914541371764</td><td>2003.4361796620085</td><td>2014.8080942033803</td></tr>
-<tr><td>4000709005185</td><td>269.8318125502752</td><td>-29.204834834195</td><td>1.6505626500483992</td><td>1.2957974426933525</td><td>2</td><td>33</td><td>-2.1191635793690704</td><td>-11.256039556869194</td><td>1.9603798808610258</td><td>1.881822042900905</td><td>8.549975059183776</td><td>2013.6336087653433</td><td>2.4349723374579435</td><td>2012.3433359800624</td><td>2014.7783083175204</td></tr>
-<tr><td>4000709005186</td><td>269.8387558085273</td><td>-29.20483194787105</td><td>1.1109094101908312</td><td>1.7268787328882316</td><td>2</td><td>44</td><td>-0.9736207737749203</td><td>-7.728563387215342</td><td>1.23123088968054</td><td>2.150929109093123</td><td>10.987329625446108</td><td>2013.5219319766793</td><td>3.0067822490178155</td><td>2011.8013119543625</td><td>2014.8080942033803</td></tr>
-<tr><td>4000709005187</td><td>269.8153494657498</td><td>-29.20465930582853</td><td>2.4968225508208053</td><td>13.873605184546227</td><td>2</td><td>39</td><td>-1.367980570643435</td><td>-5.5378208295456925</td><td>3.9030314156050387</td><td>7.0967554951513625</td><td>75.7027436919891</td><td>2013.2038248178687</td><td>11.371914541371764</td><td>2003.4361796620085</td><td>2014.8080942033803</td></tr>
-<tr><td>4000709005188</td><td>269.78670608428894</td><td>-29.204656790215285</td><td>0.8063310977126443</td><td>0.6816889134899603</td><td>2</td><td>48</td><td>-5.029307843964451</td><td>-6.455965972379338</td><td>0.5276755748878863</td><td>0.35800808272493506</td><td>4.656701321712595</td><td>2013.303640830872</td><td>11.371914541371764</td><td>2003.4361796620085</td><td>2014.8080942033803</td></tr>
-<tr><td>4000709005189</td><td>269.8415079333277</td><td>-29.20463135388953</td><td>0.27843951661041333</td><td>0.8673983927001542</td><td>2</td><td>46</td><td>3.7504756809405118</td><td>-2.6724340883915376</td><td>0.40903625761197016</td><td>1.009737427955268</td><td>4.23300311964119</td><td>2013.5152382701992</td><td>3.0067822490178155</td><td>2011.8013119543625</td><td>2014.8080942033803</td></tr>
-<tr><td>4000709005190</td><td>269.78980540363534</td><td>-29.20471801940763</td><td>0.2506038108867054</td><td>0.19975911813574576</td><td>2</td><td>47</td><td>1.436968299372853</td><td>0.08325099492665194</td><td>0.13736699866416605</td><td>0.13346799444180982</td><td>1.6406234814206895</td><td>2013.3007902147058</td><td>11.371914541371764</td><td>2003.4361796620085</td><td>2014.8080942033803</td></tr>
-<tr><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td></tr>
-<tr><td>4000805716072</td><td>269.75349922919384</td><td>-29.18723752907607</td><td>2.225441886958637</td><td>0.782317518968335</td><td>11</td><td>17</td><td>0.7682489073323565</td><td>-9.094933073371836</td><td>1.0521212702413032</td><td>0.5895653517979129</td><td>4.37247648972029</td><td>2014.4109706368163</td><td>5.219308377861273</td><td>2010.356355274077</td><td>2015.5756636519384</td></tr>
-<tr><td>4000805716573</td><td>269.74337423557154</td><td>-29.187417348173906</td><td>2.2057221630623087</td><td>1.9380676063030071</td><td>3</td><td>13</td><td>-1.7246226034552836</td><td>-3.772286208288804</td><td>1.9666791745656962</td><td>0.9077857821690272</td><td>7.275300815521908</td><td>2013.3270090436067</td><td>5.216772221613989</td><td>2010.356355274077</td><td>2015.573127495691</td></tr>
-<tr><td>4000805716797</td><td>269.75311840756876</td><td>-29.1875254442458</td><td>2.9271667402623693</td><td>0.9482549003194116</td><td>12</td><td>18</td><td>1.3713042559931965</td><td>-6.3540188143131315</td><td>1.26442887382718</td><td>0.5131927494850674</td><td>6.982581704130064</td><td>2013.8998191947917</td><td>5.219308377861273</td><td>2010.356355274077</td><td>2015.5756636519384</td></tr>
-<tr><td>4000805718205</td><td>269.7531594948824</td><td>-29.18815017514315</td><td>0.5494108385351802</td><td>0.6155244968083992</td><td>11</td><td>16</td><td>2.5304788303426915</td><td>-12.540047925464076</td><td>0.37772533382674667</td><td>0.29374575821287885</td><td>2.3547333546528257</td><td>2014.6643840969873</td><td>5.218033788614816</td><td>2010.3576298633234</td><td>2015.5756636519384</td></tr>
-<tr><td>4000805718227</td><td>269.75302524494737</td><td>-29.188080987508073</td><td>0.2567567729208505</td><td>0.6430636567034627</td><td>11</td><td>17</td><td>0.813067868041367</td><td>-3.61402975912221</td><td>0.1687916530796768</td><td>0.3111832471586058</td><td>1.8294292258514444</td><td>2014.4109706368163</td><td>5.219308377861273</td><td>2010.356355274077</td><td>2015.5756636519384</td></tr>
-<tr><td>4000805721823</td><td>269.7695982219451</td><td>-29.175803921966573</td><td>1.2464516090926194</td><td>1.5163458807240446</td><td>2</td><td>11</td><td>1.1412990011218498</td><td>-5.428214394817046</td><td>0.874471901558702</td><td>0.4259868174608321</td><td>4.621144469937843</td><td>2012.3248994807168</td><td>7.50342572353459</td><td>2006.1859879667713</td><td>2013.6894136903059</td></tr>
-<tr><td>4000805722552</td><td>269.7505635379468</td><td>-29.176124301646208</td><td>1.3508567271806144</td><td>1.850067948347601</td><td>2</td><td>11</td><td>1.9211167391693023</td><td>-4.843733969442646</td><td>0.25647794769519505</td><td>0.559965448993369</td><td>6.095379183419253</td><td>2006.108952592096</td><td>10.200037916489888</td><td>2004.1467026849632</td><td>2014.346740601453</td></tr>
-<tr><td>4000805728345</td><td>269.7539224541331</td><td>-29.178794521368257</td><td>0.42735895669302787</td><td>1.5104432157942864</td><td>9</td><td>12</td><td>0.7590503605846199</td><td>-4.154499610349287</td><td>1.5007101246970251</td><td>1.908878185384447</td><td>4.103871884896495</td><td>2015.2342165052428</td><td>2.1380438612573855</td><td>2013.4376197906809</td><td>2015.5756636519384</td></tr>
-<tr><td>4000805728821</td><td>269.7537554562008</td><td>-29.178900030499676</td><td>0.6515493691149903</td><td>1.447739611457231</td><td>8</td><td>12</td><td>-2.453791229451978</td><td>-4.150456762837246</td><td>1.4454663042351932</td><td>1.9853239207492839</td><td>3.912742659071166</td><td>2015.2342165052428</td><td>2.1380438612573855</td><td>2013.4376197906809</td><td>2015.5756636519384</td></tr>
-<tr><td>4000805729371</td><td>269.7539432727861</td><td>-29.17923921402182</td><td>0.9428707849288095</td><td>2.2270659305282616</td><td>12</td><td>21</td><td>-1.3667461636569604</td><td>-6.211549003955427</td><td>0.7396246619404391</td><td>1.3316386336223534</td><td>7.644371045931119</td><td>2015.6460245705196</td><td>7.150233691270112</td><td>2010.3810252001922</td><td>2017.5312588914621</td></tr>
-</table></div></div></div>
+</div>
 </div>
 </section>
 </section>
@@ -1440,9 +1451,6 @@ These constraints can be modified depending on your science goals.</p>
 <span class="n">ax</span><span class="o">.</span><span class="n">invert_xaxis</span><span class="p">()</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../../../../_images/sweeps_hscv3p1_api_14_0.png" src="../../../../_images/sweeps_hscv3p1_api_14_0.png" />
 </div>
 </div>
 </section>
@@ -1465,9 +1473,6 @@ These constraints can be modified depending on your science goals.</p>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="../../../../_images/sweeps_hscv3p1_api_17_0.png" src="../../../../_images/sweeps_hscv3p1_api_17_0.png" />
-</div>
 </div>
 </section>
 <section id="proper-motion-error-cumulative-histogram-for-lon-and-lat">
@@ -1486,9 +1491,6 @@ These constraints can be modified depending on your science goals.</p>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="../../../../_images/sweeps_hscv3p1_api_19_0.png" src="../../../../_images/sweeps_hscv3p1_api_19_0.png" />
-</div>
 </div>
 </section>
 <section id="proper-motion-error-log-histogram-for-lon-and-lat">
@@ -1506,9 +1508,6 @@ These constraints can be modified depending on your science goals.</p>
 <span class="n">_</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper right&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../../../../_images/sweeps_hscv3p1_api_21_0.png" src="../../../../_images/sweeps_hscv3p1_api_21_0.png" />
 </div>
 </div>
 </section>
@@ -1547,14 +1546,6 @@ These constraints can be modified depending on your science goals.</p>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>kde took 2.1 sec
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Plotting 182171 of 461199 points
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1565,9 +1556,6 @@ These constraints can be modified depending on your science goals.</p>
 <span class="n">_</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">sc</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../../../../_images/sweeps_hscv3p1_api_24_0.png" src="../../../../_images/sweeps_hscv3p1_api_24_0.png" />
 </div>
 </div>
 </section>
@@ -1609,9 +1597,6 @@ These constraints can be modified depending on your science goals.</p>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="../../../../_images/sweeps_hscv3p1_api_27_0.png" src="../../../../_images/sweeps_hscv3p1_api_27_0.png" />
-</div>
 </div>
 </section>
 </section>
@@ -1629,9 +1614,6 @@ These constraints can be modified depending on your science goals.</p>
 <span class="n">_</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">margins</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../../../../_images/sweeps_hscv3p1_api_29_0.png" src="../../../../_images/sweeps_hscv3p1_api_29_0.png" />
 </div>
 </div>
 </section>
@@ -1652,9 +1634,6 @@ These constraints can be modified depending on your science goals.</p>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="../../../../_images/sweeps_hscv3p1_api_31_0.png" src="../../../../_images/sweeps_hscv3p1_api_31_0.png" />
-</div>
 </div>
 <p>Then plot histogram of observation duration for the objects.</p>
 <div class="cell docutils container">
@@ -1668,9 +1647,6 @@ These constraints can be modified depending on your science goals.</p>
 <span class="n">_</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;time span (years)&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Number of objects&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">tab</span><span class="p">)</span><span class="si">:</span><span class="s1">,</span><span class="si">}</span><span class="s1"> stars in SWEEPS&#39;</span><span class="p">,</span> <span class="n">yscale</span><span class="o">=</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../../../../_images/sweeps_hscv3p1_api_33_0.png" src="../../../../_images/sweeps_hscv3p1_api_33_0.png" />
 </div>
 </div>
 </section>
@@ -1750,31 +1726,6 @@ These constraints can be modified depending on your science goals.</p>
     <span class="n">positions</span><span class="p">(</span><span class="n">o</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Plotting 21 objects
-</pre></div>
-</div>
-<img alt="../../../../_images/sweeps_hscv3p1_api_37_1.png" src="../../../../_images/sweeps_hscv3p1_api_37_1.png" />
-<img alt="../../../../_images/sweeps_hscv3p1_api_37_2.png" src="../../../../_images/sweeps_hscv3p1_api_37_2.png" />
-<img alt="../../../../_images/sweeps_hscv3p1_api_37_3.png" src="../../../../_images/sweeps_hscv3p1_api_37_3.png" />
-<img alt="../../../../_images/sweeps_hscv3p1_api_37_4.png" src="../../../../_images/sweeps_hscv3p1_api_37_4.png" />
-<img alt="../../../../_images/sweeps_hscv3p1_api_37_5.png" src="../../../../_images/sweeps_hscv3p1_api_37_5.png" />
-<img alt="../../../../_images/sweeps_hscv3p1_api_37_6.png" src="../../../../_images/sweeps_hscv3p1_api_37_6.png" />
-<img alt="../../../../_images/sweeps_hscv3p1_api_37_7.png" src="../../../../_images/sweeps_hscv3p1_api_37_7.png" />
-<img alt="../../../../_images/sweeps_hscv3p1_api_37_8.png" src="../../../../_images/sweeps_hscv3p1_api_37_8.png" />
-<img alt="../../../../_images/sweeps_hscv3p1_api_37_9.png" src="../../../../_images/sweeps_hscv3p1_api_37_9.png" />
-<img alt="../../../../_images/sweeps_hscv3p1_api_37_10.png" src="../../../../_images/sweeps_hscv3p1_api_37_10.png" />
-<img alt="../../../../_images/sweeps_hscv3p1_api_37_11.png" src="../../../../_images/sweeps_hscv3p1_api_37_11.png" />
-<img alt="../../../../_images/sweeps_hscv3p1_api_37_12.png" src="../../../../_images/sweeps_hscv3p1_api_37_12.png" />
-<img alt="../../../../_images/sweeps_hscv3p1_api_37_13.png" src="../../../../_images/sweeps_hscv3p1_api_37_13.png" />
-<img alt="../../../../_images/sweeps_hscv3p1_api_37_14.png" src="../../../../_images/sweeps_hscv3p1_api_37_14.png" />
-<img alt="../../../../_images/sweeps_hscv3p1_api_37_15.png" src="../../../../_images/sweeps_hscv3p1_api_37_15.png" />
-<img alt="../../../../_images/sweeps_hscv3p1_api_37_16.png" src="../../../../_images/sweeps_hscv3p1_api_37_16.png" />
-<img alt="../../../../_images/sweeps_hscv3p1_api_37_17.png" src="../../../../_images/sweeps_hscv3p1_api_37_17.png" />
-<img alt="../../../../_images/sweeps_hscv3p1_api_37_18.png" src="../../../../_images/sweeps_hscv3p1_api_37_18.png" />
-<img alt="../../../../_images/sweeps_hscv3p1_api_37_19.png" src="../../../../_images/sweeps_hscv3p1_api_37_19.png" />
-<img alt="../../../../_images/sweeps_hscv3p1_api_37_20.png" src="../../../../_images/sweeps_hscv3p1_api_37_20.png" />
 </div>
 </div>
 </section>
