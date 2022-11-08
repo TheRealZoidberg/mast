@@ -983,6 +983,9 @@ title="Print to PDF"
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="../../../../_images/kepler_measuring_a_rotation_period_20_0.png" src="../../../../_images/kepler_measuring_a_rotation_period_20_0.png" />
+</div>
 </div>
 <p>Despite these data being folded on the period of a known planet, we are unable to see the planet transits within the noise. Let’s have a look at the periodogram.</p>
 <div class="cell docutils container">
@@ -991,6 +994,9 @@ title="Print to PDF"
 <span class="n">pg</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">scale</span><span class="o">=</span><span class="s1">&#39;log&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../../_images/kepler_measuring_a_rotation_period_22_0.png" src="../../../../_images/kepler_measuring_a_rotation_period_22_0.png" />
 </div>
 </div>
 <p>As we can see in this periodogram, the star appears to include multiple high-amplitude oscillation signals. Using the Lomb-Scargle <code class="docutils literal notranslate"><span class="pre">model()</span></code> method we used earlier, we can remove these signals from the time series data. We’ll do this as follows:</p>
@@ -1029,7 +1035,117 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../../_images/kepler_measuring_a_rotation_period_26_0.png" src="../../../../_images/kepler_measuring_a_rotation_period_26_0.png" />
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span> <span class="p">[</span><span class="mi">9</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">newlc</span><span class="o">.</span><span class="n">fold</span><span class="p">(</span><span class="n">period</span><span class="o">=</span><span class="n">planet_period</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Unbinned&#39;</span><span class="p">)</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">newlc</span><span class="o">.</span><span class="n">fold</span><span class="p">(</span><span class="n">period</span><span class="o">=</span><span class="n">planet_period</span><span class="p">)</span><span class="o">.</span><span class="n">bin</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Binned&#39;</span><span class="p">);</span>
+
+<span class="nn">File /usr/share/miniconda/lib/python3.9/site-packages/astropy/utils/decorators.py:554,</span> in <span class="ni">deprecated_renamed_argument.&lt;locals&gt;.decorator.&lt;locals&gt;.wrapper</span><span class="nt">(*args, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">551</span>             <span class="n">msg</span> <span class="o">+=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">        Use </span><span class="si">{</span><span class="n">alternative</span><span class="si">}</span><span class="s1"> instead.&#39;</span>
+<span class="g g-Whitespace">    </span><span class="mi">552</span>         <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="n">warning_type</span><span class="p">,</span> <span class="n">stacklevel</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">554</span> <span class="k">return</span> <span class="n">function</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="nn">File /usr/share/miniconda/lib/python3.9/site-packages/lightkurve/lightcurve.py:1565,</span> in <span class="ni">LightCurve.bin</span><span class="nt">(self, time_bin_size, time_bin_start, time_bin_end, n_bins, aggregate_func, bins, binsize)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1559</span> <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">isfinite</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">flux_err</span><span class="p">)):</span>
+<span class="g g-Whitespace">   </span><span class="mi">1560</span>     <span class="n">rmse_func</span> <span class="o">=</span> <span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1561</span>         <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">nansum</span><span class="p">(</span><span class="n">x</span> <span class="o">**</span> <span class="mi">2</span><span class="p">))</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">atleast_1d</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="g g-Whitespace">   </span><span class="mi">1562</span>         <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">isfinite</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="g g-Whitespace">   </span><span class="mi">1563</span>         <span class="k">else</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+<span class="g g-Whitespace">   </span><span class="mi">1564</span>     <span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">1565</span>     <span class="n">ts_err</span> <span class="o">=</span> <span class="n">aggregate_downsample</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1566</span>         <span class="bp">self</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1567</span>         <span class="n">time_bin_size</span><span class="o">=</span><span class="n">time_bin_size</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1568</span>         <span class="n">n_bins</span><span class="o">=</span><span class="n">n_bins</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1569</span>         <span class="n">time_bin_start</span><span class="o">=</span><span class="n">time_bin_start</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1570</span>         <span class="n">aggregate_func</span><span class="o">=</span><span class="n">rmse_func</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1571</span>     <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1572</span>     <span class="n">ts</span><span class="p">[</span><span class="s2">&quot;flux_err&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ts_err</span><span class="p">[</span><span class="s2">&quot;flux_err&quot;</span><span class="p">]</span>
+<span class="g g-Whitespace">   </span><span class="mi">1573</span> <span class="c1"># If `flux_err` is unavailable, populate `flux_err` as nanstd(flux)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1574</span> <span class="k">else</span><span class="p">:</span>
+
+<span class="nn">File /usr/share/miniconda/lib/python3.9/site-packages/astropy/timeseries/downsample.py:173,</span> in <span class="ni">aggregate_downsample</span><span class="nt">(time_series, time_bin_size, time_bin_start, time_bin_end, n_bins, aggregate_func)</span>
+<span class="g g-Whitespace">    </span><span class="mi">169</span> <span class="n">subset</span> <span class="o">=</span> <span class="n">ts_sorted</span><span class="p">[</span><span class="n">keep</span><span class="p">]</span>
+<span class="g g-Whitespace">    </span><span class="mi">171</span> <span class="c1"># Figure out which bin each row falls in by sorting with respect</span>
+<span class="g g-Whitespace">    </span><span class="mi">172</span> <span class="c1"># to the bin end times</span>
+<span class="ne">--&gt; </span><span class="mi">173</span> <span class="n">indices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">searchsorted</span><span class="p">(</span><span class="n">bin_end</span><span class="p">,</span> <span class="n">ts_sorted</span><span class="o">.</span><span class="n">time</span><span class="p">[</span><span class="n">keep</span><span class="p">])</span>
+<span class="g g-Whitespace">    </span><span class="mi">175</span> <span class="c1"># For time == bin_start[i+1] == bin_end[i], let bin_start takes precedence</span>
+<span class="g g-Whitespace">    </span><span class="mi">176</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">indices</span><span class="p">)</span> <span class="ow">and</span> <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">bin_start</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">&gt;=</span> <span class="n">bin_end</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]):</span>
+
+<span class="nn">File &lt;__array_function__ internals&gt;:180,</span> in <span class="ni">searchsorted</span><span class="nt">(*args, **kwargs)</span>
+
+<span class="nn">File /usr/share/miniconda/lib/python3.9/site-packages/astropy/utils/shapes.py:300,</span> in <span class="ni">ShapedLikeNDArray.__array_function__</span><span class="nt">(self, function, types, args, kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">296</span>             <span class="k">return</span> <span class="n">method</span>
+<span class="g g-Whitespace">    </span><span class="mi">298</span> <span class="c1"># Fall-back, just pass the arguments on since perhaps the function</span>
+<span class="g g-Whitespace">    </span><span class="mi">299</span> <span class="c1"># works already (see above).</span>
+<span class="ne">--&gt; </span><span class="mi">300</span> <span class="k">return</span> <span class="n">function</span><span class="o">.</span><span class="n">__wrapped__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="nn">File /usr/share/miniconda/lib/python3.9/site-packages/numpy/core/fromnumeric.py:1387,</span> in <span class="ni">searchsorted</span><span class="nt">(a, v, side, sorter)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1319</span> <span class="nd">@array_function_dispatch</span><span class="p">(</span><span class="n">_searchsorted_dispatcher</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1320</span> <span class="k">def</span> <span class="nf">searchsorted</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">side</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="n">sorter</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">1321</span>     <span class="sd">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1322</span><span class="sd">     Find indices where elements should be inserted to maintain order.</span>
+<span class="g g-Whitespace">   </span><span class="mi">1323</span><span class="sd"> </span>
+<span class="sd">   (...)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1385</span><span class="sd"> </span>
+<span class="g g-Whitespace">   </span><span class="mi">1386</span><span class="sd">     &quot;&quot;&quot;</span>
+<span class="ne">-&gt; </span><span class="mi">1387</span>     <span class="k">return</span> <span class="n">_wrapfunc</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="s1">&#39;searchsorted&#39;</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">side</span><span class="o">=</span><span class="n">side</span><span class="p">,</span> <span class="n">sorter</span><span class="o">=</span><span class="n">sorter</span><span class="p">)</span>
+
+<span class="nn">File /usr/share/miniconda/lib/python3.9/site-packages/numpy/core/fromnumeric.py:54,</span> in <span class="ni">_wrapfunc</span><span class="nt">(obj, method, *args, **kwds)</span>
+<span class="g g-Whitespace">     </span><span class="mi">52</span> <span class="n">bound</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">method</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">53</span> <span class="k">if</span> <span class="n">bound</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span class="ne">---&gt; </span><span class="mi">54</span>     <span class="k">return</span> <span class="n">_wrapit</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">method</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">56</span> <span class="k">try</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">57</span>     <span class="k">return</span> <span class="n">bound</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
+
+<span class="nn">File /usr/share/miniconda/lib/python3.9/site-packages/numpy/core/fromnumeric.py:43,</span> in <span class="ni">_wrapit</span><span class="nt">(obj, method, *args, **kwds)</span>
+<span class="g g-Whitespace">     </span><span class="mi">41</span> <span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">42</span>     <span class="n">wrap</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="ne">---&gt; </span><span class="mi">43</span> <span class="n">result</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">asarray</span><span class="p">(</span><span class="n">obj</span><span class="p">),</span> <span class="n">method</span><span class="p">)(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">44</span> <span class="k">if</span> <span class="n">wrap</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">45</span>     <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">mu</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
+
+<span class="nn">File /usr/share/miniconda/lib/python3.9/site-packages/astropy/time/core.py:1456,</span> in <span class="ni">TimeBase.__lt__</span><span class="nt">(self, other)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1455</span> <span class="k">def</span> <span class="fm">__lt__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+<span class="ne">-&gt; </span><span class="mi">1456</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_time_comparison</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">operator</span><span class="o">.</span><span class="n">lt</span><span class="p">)</span>
+
+<span class="nn">File /usr/share/miniconda/lib/python3.9/site-packages/astropy/time/core.py:1453,</span> in <span class="ni">TimeBase._time_comparison</span><span class="nt">(self, other, op)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1450</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">scale</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">other</span><span class="o">.</span><span class="n">scale</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1451</span>     <span class="n">other</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">scale</span><span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">1453</span> <span class="k">return</span> <span class="n">op</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">jd1</span> <span class="o">-</span> <span class="n">other</span><span class="o">.</span><span class="n">jd1</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">jd2</span> <span class="o">-</span> <span class="n">other</span><span class="o">.</span><span class="n">jd2</span><span class="p">),</span> <span class="mf">0.</span><span class="p">)</span>
+
+<span class="nn">File /usr/share/miniconda/lib/python3.9/site-packages/astropy/time/core.py:778,</span> in <span class="ni">TimeBase.jd2</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">773</span> <span class="nd">@property</span>
+<span class="g g-Whitespace">    </span><span class="mi">774</span> <span class="k">def</span> <span class="nf">jd2</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">775</span>     <span class="sd">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">776</span><span class="sd">     Second of the two doubles that internally store time value(s) in JD.</span>
+<span class="g g-Whitespace">    </span><span class="mi">777</span><span class="sd">     &quot;&quot;&quot;</span>
+<span class="ne">--&gt; </span><span class="mi">778</span>     <span class="n">jd2</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_time</span><span class="o">.</span><span class="n">mask_if_needed</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_time</span><span class="o">.</span><span class="n">jd2</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">779</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_shaped_like_input</span><span class="p">(</span><span class="n">jd2</span><span class="p">)</span>
+
+<span class="nn">File /usr/share/miniconda/lib/python3.9/site-packages/astropy/time/formats.py:211,</span> in <span class="ni">TimeFormat.mask_if_needed</span><span class="nt">(self, value)</span>
+<span class="g g-Whitespace">    </span><span class="mi">210</span> <span class="k">def</span> <span class="nf">mask_if_needed</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">211</span>     <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">masked</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">212</span>         <span class="n">value</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">mask</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">mask</span><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">213</span>     <span class="k">return</span> <span class="n">value</span>
+
+<span class="nn">File /usr/share/miniconda/lib/python3.9/site-packages/astropy/time/formats.py:227,</span> in <span class="ni">TimeFormat.masked</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">225</span> <span class="k">if</span> <span class="s1">&#39;masked&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">cache</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">226</span>     <span class="bp">self</span><span class="o">.</span><span class="n">cache</span><span class="p">[</span><span class="s1">&#39;masked&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">bool</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">mask</span><span class="p">))</span>
+<span class="ne">--&gt; </span><span class="mi">227</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">cache</span><span class="p">[</span><span class="s1">&#39;masked&#39;</span><span class="p">]</span>
+
+<span class="nn">File /usr/share/miniconda/lib/python3.9/site-packages/astropy/utils/decorators.py:779,</span> in <span class="ni">lazyproperty.__get__</span><span class="nt">(self, obj, owner)</span>
+<span class="g g-Whitespace">    </span><span class="mi">777</span> <span class="k">try</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">778</span>     <span class="n">obj_dict</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="vm">__dict__</span>
+<span class="ne">--&gt; </span><span class="mi">779</span>     <span class="n">val</span> <span class="o">=</span> <span class="n">obj_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_key</span><span class="p">,</span> <span class="n">_NotFound</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">780</span>     <span class="k">if</span> <span class="n">val</span> <span class="ow">is</span> <span class="n">_NotFound</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">781</span>         <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">_lock</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">782</span>             <span class="c1"># Check if another thread beat us to it.</span>
+
+<span class="ne">KeyboardInterrupt</span>: 
+</pre></div>
+</div>
+<img alt="../../../../_images/kepler_measuring_a_rotation_period_26_1.png" src="../../../../_images/kepler_measuring_a_rotation_period_26_1.png" />
 </div>
 </div>
 <p>Now we can see that a “dip” consistent with a planet transit has appeared, which makes it clearer to study!</p>

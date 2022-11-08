@@ -904,7 +904,7 @@ A light curve is a plot of flux versus time that shows the variability of light 
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html"><div><i>Table masked=True length=1</i>
-<table id="table140533828924992" class="table-striped table-bordered table-condensed">
+<table id="table140460224094752" class="table-striped table-bordered table-condensed">
 <thead><tr><th>obsID</th><th>obs_collection</th><th>dataproduct_type</th><th>obs_id</th><th>description</th><th>type</th><th>dataURI</th><th>productType</th><th>productGroupDescription</th><th>productSubGroupDescription</th><th>productDocumentationURL</th><th>project</th><th>prvversion</th><th>proposal_id</th><th>productFilename</th><th>size</th><th>parent_obsid</th><th>dataRights</th><th>calib_level</th></tr></thead>
 <thead><tr><th>str6</th><th>str6</th><th>str10</th><th>str36</th><th>str60</th><th>str1</th><th>str110</th><th>str7</th><th>str28</th><th>str8</th><th>str1</th><th>str6</th><th>str1</th><th>str7</th><th>str44</th><th>int64</th><th>str6</th><th>str6</th><th>int64</th></tr></thead>
 <tr><td>601031</td><td>Kepler</td><td>timeseries</td><td>kplr011446443_sc_Q113313330333033302</td><td>Lightcurve Short Cadence (CSC) - Q0</td><td>C</td><td>mast:KEPLER/url/missions/kepler/lightcurves/0114/011446443/kplr011446443-2009131110544_slc.fits</td><td>SCIENCE</td><td>Minimum Recommended Products</td><td>SLC</td><td>--</td><td>Kepler</td><td>--</td><td>EX_STKS</td><td>kplr011446443-2009131110544_slc.fits</td><td>1457280</td><td>601031</td><td>PUBLIC</td><td>2</td></tr>
@@ -925,7 +925,7 @@ A light curve is a plot of flux versus time that shows the variability of light 
 </pre></div>
 </div>
 <div class="output text_html"><div><i>Table length=1</i>
-<table id="table140533829410480" class="table-striped table-bordered table-condensed">
+<table id="table140460350267552" class="table-striped table-bordered table-condensed">
 <thead><tr><th>Local Path</th><th>Status</th><th>Message</th><th>URL</th></tr></thead>
 <thead><tr><th>str95</th><th>str8</th><th>object</th><th>object</th></tr></thead>
 <tr><td>./mastDownload/Kepler/kplr011446443_sc_Q113313330333033302/kplr011446443-2009131110544_slc.fits</td><td>COMPLETE</td><td>None</td><td>None</td></tr>
@@ -1017,7 +1017,7 @@ TTYPE5  = &#39;SAP_FLUX_ERR&#39;       / column title: aperture phot. flux error
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html"><div><i>Table length=4</i>
-<table id="table140533084876864" class="table-striped table-bordered table-condensed">
+<table id="table140460221707792" class="table-striped table-bordered table-condensed">
 <thead><tr><th>TIME</th><th>TIMECORR</th><th>CADENCENO</th><th>SAP_FLUX</th><th>SAP_FLUX_ERR</th><th>SAP_BKG</th><th>SAP_BKG_ERR</th><th>PDCSAP_FLUX</th><th>PDCSAP_FLUX_ERR</th><th>SAP_QUALITY</th><th>PSF_CENTR1</th><th>PSF_CENTR1_ERR</th><th>PSF_CENTR2</th><th>PSF_CENTR2_ERR</th><th>MOM_CENTR1</th><th>MOM_CENTR1_ERR</th><th>MOM_CENTR2</th><th>MOM_CENTR2_ERR</th><th>POS_CORR1</th><th>POS_CORR2</th></tr></thead>
 <thead><tr><th>float64</th><th>float32</th><th>int32</th><th>float32</th><th>float32</th><th>float32</th><th>float32</th><th>float32</th><th>float32</th><th>int32</th><th>float64</th><th>float32</th><th>float64</th><th>float32</th><th>float64</th><th>float32</th><th>float64</th><th>float32</th><th>float32</th><th>float32</th></tr></thead>
 <tr><td>120.52992386784899</td><td>0.00096672785</td><td>5501</td><td>401288.16</td><td>91.51187</td><td>2598.1086</td><td>0.5752603</td><td>406100.9</td><td>127.528824</td><td>0</td><td>nan</td><td>nan</td><td>nan</td><td>nan</td><td>621.2181187542091</td><td>0.0002101067</td><td>848.8972881655714</td><td>0.00029125414</td><td>0.0002031729</td><td>-0.0025746305</td></tr>
@@ -1202,6 +1202,7 @@ mpl.figure.prototype._init_canvas = function () {
     var fig = this;
 
     var canvas_div = (this.canvas_div = document.createElement('div'));
+    canvas_div.setAttribute('tabindex', '0');
     canvas_div.setAttribute(
         'style',
         'border: 1px solid #ddd;' +
@@ -1212,7 +1213,8 @@ mpl.figure.prototype._init_canvas = function () {
             'outline: 0;' +
             'overflow: hidden;' +
             'position: relative;' +
-            'resize: both;'
+            'resize: both;' +
+            'z-index: 2;'
     );
 
     function on_keyboard_event_closure(name) {
@@ -1235,7 +1237,13 @@ mpl.figure.prototype._init_canvas = function () {
 
     var canvas = (this.canvas = document.createElement('canvas'));
     canvas.classList.add('mpl-canvas');
-    canvas.setAttribute('style', 'box-sizing: content-box;');
+    canvas.setAttribute(
+        'style',
+        'box-sizing: content-box;' +
+            'pointer-events: none;' +
+            'position: relative;' +
+            'z-index: 0;'
+    );
 
     this.context = canvas.getContext('2d');
 
@@ -1255,7 +1263,12 @@ mpl.figure.prototype._init_canvas = function () {
     ));
     rubberband_canvas.setAttribute(
         'style',
-        'box-sizing: content-box; position: absolute; left: 0; top: 0; z-index: 1;'
+        'box-sizing: content-box;' +
+            'left: 0;' +
+            'pointer-events: none;' +
+            'position: absolute;' +
+            'top: 0;' +
+            'z-index: 1;'
     );
 
     // Apply a ponyfill if ResizeObserver is not implemented by browser.
@@ -1305,10 +1318,10 @@ mpl.figure.prototype._init_canvas = function () {
                 canvas.setAttribute('width', width * fig.ratio);
                 canvas.setAttribute('height', height * fig.ratio);
             }
-            canvas.setAttribute(
-                'style',
-                'width: ' + width + 'px; height: ' + height + 'px;'
-            );
+            /* This rescales the canvas back to display pixels, so that it
+             * appears correct on HiDPI screens. */
+            canvas.style.width = width + 'px';
+            canvas.style.height = height + 'px';
 
             rubberband_canvas.setAttribute('width', width);
             rubberband_canvas.setAttribute('height', height);
@@ -1324,34 +1337,53 @@ mpl.figure.prototype._init_canvas = function () {
     this.resizeObserverInstance.observe(canvas_div);
 
     function on_mouse_event_closure(name) {
-        return function (event) {
-            return fig.mouse_event(event, name);
-        };
+        /* User Agent sniffing is bad, but WebKit is busted:
+         * https://bugs.webkit.org/show_bug.cgi?id=144526
+         * https://bugs.webkit.org/show_bug.cgi?id=181818
+         * The worst that happens here is that they get an extra browser
+         * selection when dragging, if this check fails to catch them.
+         */
+        var UA = navigator.userAgent;
+        var isWebKit = /AppleWebKit/.test(UA) && !/Chrome/.test(UA);
+        if(isWebKit) {
+            return function (event) {
+                /* This prevents the web browser from automatically changing to
+                 * the text insertion cursor when the button is pressed. We
+                 * want to control all of the cursor setting manually through
+                 * the 'cursor' event from matplotlib */
+                event.preventDefault()
+                return fig.mouse_event(event, name);
+            };
+        } else {
+            return function (event) {
+                return fig.mouse_event(event, name);
+            };
+        }
     }
 
-    rubberband_canvas.addEventListener(
+    canvas_div.addEventListener(
         'mousedown',
         on_mouse_event_closure('button_press')
     );
-    rubberband_canvas.addEventListener(
+    canvas_div.addEventListener(
         'mouseup',
         on_mouse_event_closure('button_release')
     );
-    rubberband_canvas.addEventListener(
+    canvas_div.addEventListener(
         'dblclick',
         on_mouse_event_closure('dblclick')
     );
     // Throttle sequential mouse events to 1 every 20ms.
-    rubberband_canvas.addEventListener(
+    canvas_div.addEventListener(
         'mousemove',
         on_mouse_event_closure('motion_notify')
     );
 
-    rubberband_canvas.addEventListener(
+    canvas_div.addEventListener(
         'mouseenter',
         on_mouse_event_closure('figure_enter')
     );
-    rubberband_canvas.addEventListener(
+    canvas_div.addEventListener(
         'mouseleave',
         on_mouse_event_closure('figure_leave')
     );
@@ -1379,7 +1411,7 @@ mpl.figure.prototype._init_canvas = function () {
     };
 
     // Disable right mouse context menu.
-    this.rubberband_canvas.addEventListener('contextmenu', function (_e) {
+    canvas_div.addEventListener('contextmenu', function (_e) {
         event.preventDefault();
         return false;
     });
@@ -1534,7 +1566,7 @@ mpl.figure.prototype.handle_figure_label = function (fig, msg) {
 };
 
 mpl.figure.prototype.handle_cursor = function (fig, msg) {
-    fig.rubberband_canvas.style.cursor = msg['cursor'];
+    fig.canvas_div.style.cursor = msg['cursor'];
 };
 
 mpl.figure.prototype.handle_message = function (fig, msg) {
@@ -1646,30 +1678,6 @@ mpl.figure.prototype._make_on_message_function = function (fig) {
     };
 };
 
-// from https://stackoverflow.com/questions/1114465/getting-mouse-location-in-canvas
-mpl.findpos = function (e) {
-    //this section is from http://www.quirksmode.org/js/events_properties.html
-    var targ;
-    if (!e) {
-        e = window.event;
-    }
-    if (e.target) {
-        targ = e.target;
-    } else if (e.srcElement) {
-        targ = e.srcElement;
-    }
-    if (targ.nodeType === 3) {
-        // defeat Safari bug
-        targ = targ.parentNode;
-    }
-
-    // pageX,Y are the mouse positions relative to the document
-    var boundingRect = targ.getBoundingClientRect();
-    var x = e.pageX - (boundingRect.left + document.body.scrollLeft);
-    var y = e.pageY - (boundingRect.top + document.body.scrollTop);
-
-    return { x: x, y: y };
-};
 
 /*
  * return a copy of an object with only non-object keys
@@ -1686,15 +1694,15 @@ function simpleKeys(original) {
 }
 
 mpl.figure.prototype.mouse_event = function (event, name) {
-    var canvas_pos = mpl.findpos(event);
-
     if (name === 'button_press') {
         this.canvas.focus();
         this.canvas_div.focus();
     }
 
-    var x = canvas_pos.x * this.ratio;
-    var y = canvas_pos.y * this.ratio;
+    // from https://stackoverflow.com/q/1114465
+    var boundingRect = this.canvas.getBoundingClientRect();
+    var x = (event.clientX - boundingRect.left) * this.ratio;
+    var y = (event.clientY - boundingRect.top) * this.ratio;
 
     this.send_message(name, {
         x: x,
@@ -1704,11 +1712,6 @@ mpl.figure.prototype.mouse_event = function (event, name) {
         guiEvent: simpleKeys(event),
     });
 
-    /* This prevents the web browser from automatically changing to
-     * the text insertion cursor when the button is pressed.  We want
-     * to control all of the cursor setting manually through the
-     * 'cursor' event from matplotlib */
-    event.preventDefault();
     return false;
 };
 
@@ -2042,7 +2045,7 @@ if (IPython.notebook.kernel !== null) {
         mpl.mpl_figure_comm
     );
 }
-</script><div class="output text_html"><div id='3213c086-ddcd-4e2b-9527-788935b59e5e'></div></div></div>
+</script><div class="output text_html"><div id='be5198fa-0772-4abb-807a-4b38a903ce60'></div></div></div>
 </div>
 <p><a class="reference external" href="#title_ID">Top of Page</a></p>
 <hr class="docutils" />
@@ -2203,6 +2206,7 @@ mpl.figure.prototype._init_canvas = function () {
     var fig = this;
 
     var canvas_div = (this.canvas_div = document.createElement('div'));
+    canvas_div.setAttribute('tabindex', '0');
     canvas_div.setAttribute(
         'style',
         'border: 1px solid #ddd;' +
@@ -2213,7 +2217,8 @@ mpl.figure.prototype._init_canvas = function () {
             'outline: 0;' +
             'overflow: hidden;' +
             'position: relative;' +
-            'resize: both;'
+            'resize: both;' +
+            'z-index: 2;'
     );
 
     function on_keyboard_event_closure(name) {
@@ -2236,7 +2241,13 @@ mpl.figure.prototype._init_canvas = function () {
 
     var canvas = (this.canvas = document.createElement('canvas'));
     canvas.classList.add('mpl-canvas');
-    canvas.setAttribute('style', 'box-sizing: content-box;');
+    canvas.setAttribute(
+        'style',
+        'box-sizing: content-box;' +
+            'pointer-events: none;' +
+            'position: relative;' +
+            'z-index: 0;'
+    );
 
     this.context = canvas.getContext('2d');
 
@@ -2256,7 +2267,12 @@ mpl.figure.prototype._init_canvas = function () {
     ));
     rubberband_canvas.setAttribute(
         'style',
-        'box-sizing: content-box; position: absolute; left: 0; top: 0; z-index: 1;'
+        'box-sizing: content-box;' +
+            'left: 0;' +
+            'pointer-events: none;' +
+            'position: absolute;' +
+            'top: 0;' +
+            'z-index: 1;'
     );
 
     // Apply a ponyfill if ResizeObserver is not implemented by browser.
@@ -2306,10 +2322,10 @@ mpl.figure.prototype._init_canvas = function () {
                 canvas.setAttribute('width', width * fig.ratio);
                 canvas.setAttribute('height', height * fig.ratio);
             }
-            canvas.setAttribute(
-                'style',
-                'width: ' + width + 'px; height: ' + height + 'px;'
-            );
+            /* This rescales the canvas back to display pixels, so that it
+             * appears correct on HiDPI screens. */
+            canvas.style.width = width + 'px';
+            canvas.style.height = height + 'px';
 
             rubberband_canvas.setAttribute('width', width);
             rubberband_canvas.setAttribute('height', height);
@@ -2325,34 +2341,53 @@ mpl.figure.prototype._init_canvas = function () {
     this.resizeObserverInstance.observe(canvas_div);
 
     function on_mouse_event_closure(name) {
-        return function (event) {
-            return fig.mouse_event(event, name);
-        };
+        /* User Agent sniffing is bad, but WebKit is busted:
+         * https://bugs.webkit.org/show_bug.cgi?id=144526
+         * https://bugs.webkit.org/show_bug.cgi?id=181818
+         * The worst that happens here is that they get an extra browser
+         * selection when dragging, if this check fails to catch them.
+         */
+        var UA = navigator.userAgent;
+        var isWebKit = /AppleWebKit/.test(UA) && !/Chrome/.test(UA);
+        if(isWebKit) {
+            return function (event) {
+                /* This prevents the web browser from automatically changing to
+                 * the text insertion cursor when the button is pressed. We
+                 * want to control all of the cursor setting manually through
+                 * the 'cursor' event from matplotlib */
+                event.preventDefault()
+                return fig.mouse_event(event, name);
+            };
+        } else {
+            return function (event) {
+                return fig.mouse_event(event, name);
+            };
+        }
     }
 
-    rubberband_canvas.addEventListener(
+    canvas_div.addEventListener(
         'mousedown',
         on_mouse_event_closure('button_press')
     );
-    rubberband_canvas.addEventListener(
+    canvas_div.addEventListener(
         'mouseup',
         on_mouse_event_closure('button_release')
     );
-    rubberband_canvas.addEventListener(
+    canvas_div.addEventListener(
         'dblclick',
         on_mouse_event_closure('dblclick')
     );
     // Throttle sequential mouse events to 1 every 20ms.
-    rubberband_canvas.addEventListener(
+    canvas_div.addEventListener(
         'mousemove',
         on_mouse_event_closure('motion_notify')
     );
 
-    rubberband_canvas.addEventListener(
+    canvas_div.addEventListener(
         'mouseenter',
         on_mouse_event_closure('figure_enter')
     );
-    rubberband_canvas.addEventListener(
+    canvas_div.addEventListener(
         'mouseleave',
         on_mouse_event_closure('figure_leave')
     );
@@ -2380,7 +2415,7 @@ mpl.figure.prototype._init_canvas = function () {
     };
 
     // Disable right mouse context menu.
-    this.rubberband_canvas.addEventListener('contextmenu', function (_e) {
+    canvas_div.addEventListener('contextmenu', function (_e) {
         event.preventDefault();
         return false;
     });
@@ -2535,7 +2570,7 @@ mpl.figure.prototype.handle_figure_label = function (fig, msg) {
 };
 
 mpl.figure.prototype.handle_cursor = function (fig, msg) {
-    fig.rubberband_canvas.style.cursor = msg['cursor'];
+    fig.canvas_div.style.cursor = msg['cursor'];
 };
 
 mpl.figure.prototype.handle_message = function (fig, msg) {
@@ -2647,30 +2682,6 @@ mpl.figure.prototype._make_on_message_function = function (fig) {
     };
 };
 
-// from https://stackoverflow.com/questions/1114465/getting-mouse-location-in-canvas
-mpl.findpos = function (e) {
-    //this section is from http://www.quirksmode.org/js/events_properties.html
-    var targ;
-    if (!e) {
-        e = window.event;
-    }
-    if (e.target) {
-        targ = e.target;
-    } else if (e.srcElement) {
-        targ = e.srcElement;
-    }
-    if (targ.nodeType === 3) {
-        // defeat Safari bug
-        targ = targ.parentNode;
-    }
-
-    // pageX,Y are the mouse positions relative to the document
-    var boundingRect = targ.getBoundingClientRect();
-    var x = e.pageX - (boundingRect.left + document.body.scrollLeft);
-    var y = e.pageY - (boundingRect.top + document.body.scrollTop);
-
-    return { x: x, y: y };
-};
 
 /*
  * return a copy of an object with only non-object keys
@@ -2687,15 +2698,15 @@ function simpleKeys(original) {
 }
 
 mpl.figure.prototype.mouse_event = function (event, name) {
-    var canvas_pos = mpl.findpos(event);
-
     if (name === 'button_press') {
         this.canvas.focus();
         this.canvas_div.focus();
     }
 
-    var x = canvas_pos.x * this.ratio;
-    var y = canvas_pos.y * this.ratio;
+    // from https://stackoverflow.com/q/1114465
+    var boundingRect = this.canvas.getBoundingClientRect();
+    var x = (event.clientX - boundingRect.left) * this.ratio;
+    var y = (event.clientY - boundingRect.top) * this.ratio;
 
     this.send_message(name, {
         x: x,
@@ -2705,11 +2716,6 @@ mpl.figure.prototype.mouse_event = function (event, name) {
         guiEvent: simpleKeys(event),
     });
 
-    /* This prevents the web browser from automatically changing to
-     * the text insertion cursor when the button is pressed.  We want
-     * to control all of the cursor setting manually through the
-     * 'cursor' event from matplotlib */
-    event.preventDefault();
     return false;
 };
 
@@ -3043,7 +3049,7 @@ if (IPython.notebook.kernel !== null) {
         mpl.mpl_figure_comm
     );
 }
-</script><div class="output text_html"><div id='a5b80ae9-d40e-45e3-9967-19c23f25b833'></div></div><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.colorbar.Colorbar at 0x7fd06865ed90&gt;
+</script><div class="output text_html"><div id='950fded7-3c69-456f-9df0-0a13cd2925dc'></div></div><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.colorbar.Colorbar at 0x7fbf7167d880&gt;
 </pre></div>
 </div>
 </div>

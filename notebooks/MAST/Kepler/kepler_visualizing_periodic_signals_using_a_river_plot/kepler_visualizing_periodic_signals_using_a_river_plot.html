@@ -867,212 +867,15 @@ title="Print to PDF"
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span> <span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">lc</span> <span class="o">=</span> <span class="n">lk</span><span class="o">.</span><span class="n">search_lightcurve</span><span class="p">(</span><span class="s1">&#39;KIC 6185476&#39;</span><span class="p">,</span> <span class="n">cadence</span><span class="o">=</span><span class="s1">&#39;long&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">download_all</span><span class="p">()</span><span class="o">.</span><span class="n">stitch</span><span class="p">()</span>
-
-<span class="nn">File /usr/share/miniconda/lib/python3.9/site-packages/lightkurve/utils.py:563,</span> in <span class="ni">suppress_stdout.&lt;locals&gt;.wrapper</span><span class="nt">(*args, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">561</span> <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span> <span class="o">=</span> <span class="n">devnull</span>
-<span class="g g-Whitespace">    </span><span class="mi">562</span> <span class="k">try</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">563</span>     <span class="k">return</span> <span class="n">f</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">564</span> <span class="c1"># restore to default</span>
-<span class="g g-Whitespace">    </span><span class="mi">565</span> <span class="k">finally</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">566</span>     <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span> <span class="o">=</span> <span class="n">old_out</span>
-
-<span class="nn">File /usr/share/miniconda/lib/python3.9/site-packages/lightkurve/search.py:484,</span> in <span class="ni">SearchResult.download_all</span><span class="nt">(self, quality_bitmask, download_dir, cutout_size, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">481</span> <span class="n">products</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="g g-Whitespace">    </span><span class="mi">482</span> <span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">table</span><span class="p">)):</span>
-<span class="g g-Whitespace">    </span><span class="mi">483</span>     <span class="n">products</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
-<span class="ne">--&gt; </span><span class="mi">484</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_download_one</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">485</span>             <span class="n">table</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">table</span><span class="p">[</span><span class="n">idx</span> <span class="p">:</span> <span class="n">idx</span> <span class="o">+</span> <span class="mi">1</span><span class="p">],</span>
-<span class="g g-Whitespace">    </span><span class="mi">486</span>             <span class="n">quality_bitmask</span><span class="o">=</span><span class="n">quality_bitmask</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">487</span>             <span class="n">download_dir</span><span class="o">=</span><span class="n">download_dir</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">488</span>             <span class="n">cutout_size</span><span class="o">=</span><span class="n">cutout_size</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">489</span>             <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">490</span>         <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">491</span>     <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">492</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">products</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">TargetPixelFile</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">493</span>     <span class="k">return</span> <span class="n">TargetPixelFileCollection</span><span class="p">(</span><span class="n">products</span><span class="p">)</span>
-
-<span class="nn">File /usr/share/miniconda/lib/python3.9/site-packages/lightkurve/search.py:341,</span> in <span class="ni">SearchResult._download_one</span><span class="nt">(self, table, quality_bitmask, download_dir, cutout_size, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">339</span> <span class="n">download_url</span> <span class="o">=</span> <span class="n">table</span><span class="p">[:</span><span class="mi">1</span><span class="p">][</span><span class="s2">&quot;dataURL&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
-<span class="g g-Whitespace">    </span><span class="mi">340</span> <span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Started downloading </span><span class="si">{}</span><span class="s2">.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">download_url</span><span class="p">))</span>
-<span class="ne">--&gt; </span><span class="mi">341</span> <span class="n">download_response</span> <span class="o">=</span> <span class="n">Observations</span><span class="o">.</span><span class="n">download_products</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">342</span>     <span class="n">table</span><span class="p">[:</span><span class="mi">1</span><span class="p">],</span> <span class="n">mrp_only</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">download_dir</span><span class="o">=</span><span class="n">download_dir</span>
-<span class="g g-Whitespace">    </span><span class="mi">343</span> <span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-<span class="g g-Whitespace">    </span><span class="mi">344</span> <span class="k">if</span> <span class="n">download_response</span><span class="p">[</span><span class="s2">&quot;Status&quot;</span><span class="p">]</span> <span class="o">!=</span> <span class="s2">&quot;COMPLETE&quot;</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">345</span>     <span class="k">raise</span> <span class="n">LightkurveError</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">346</span>         <span class="sa">f</span><span class="s2">&quot;Download of </span><span class="si">{</span><span class="n">download_url</span><span class="si">}</span><span class="s2"> failed. &quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">347</span>         <span class="sa">f</span><span class="s2">&quot;MAST returns </span><span class="si">{</span><span class="n">download_response</span><span class="p">[</span><span class="s1">&#39;Status&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">download_response</span><span class="p">[</span><span class="s1">&#39;Message&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">348</span>         <span class="p">)</span>
-
-<span class="nn">File /usr/share/miniconda/lib/python3.9/site-packages/astroquery/mast/observations.py:734,</span> in <span class="ni">ObservationsClass.download_products</span><span class="nt">(self, products, download_dir, cache, curl_flag, mrp_only, cloud_only, **filters)</span>
-<span class="g g-Whitespace">    </span><span class="mi">732</span> <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">733</span>     <span class="n">base_dir</span> <span class="o">=</span> <span class="n">download_dir</span><span class="o">.</span><span class="n">rstrip</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;/mastDownload&quot;</span>
-<span class="ne">--&gt; </span><span class="mi">734</span>     <span class="n">manifest</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_download_files</span><span class="p">(</span><span class="n">products</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">735</span>                                     <span class="n">base_dir</span><span class="o">=</span><span class="n">base_dir</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">736</span>                                     <span class="n">cache</span><span class="o">=</span><span class="n">cache</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">737</span>                                     <span class="n">cloud_only</span><span class="o">=</span><span class="n">cloud_only</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">739</span> <span class="k">return</span> <span class="n">manifest</span>
-
-<span class="nn">File /usr/share/miniconda/lib/python3.9/site-packages/astroquery/mast/observations.py:617,</span> in <span class="ni">ObservationsClass._download_files</span><span class="nt">(self, products, base_dir, cache, cloud_only)</span>
-<span class="g g-Whitespace">    </span><span class="mi">614</span>     <span class="n">local_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">local_path</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">data_product</span><span class="p">[</span><span class="s1">&#39;productFilename&#39;</span><span class="p">]))</span>
-<span class="g g-Whitespace">    </span><span class="mi">616</span>     <span class="c1"># download the files</span>
-<span class="ne">--&gt; </span><span class="mi">617</span>     <span class="n">status</span><span class="p">,</span> <span class="n">msg</span><span class="p">,</span> <span class="n">url</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">download_file</span><span class="p">(</span><span class="n">data_product</span><span class="p">[</span><span class="s2">&quot;dataURI&quot;</span><span class="p">],</span> <span class="n">local_path</span><span class="o">=</span><span class="n">local_path</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">618</span>                                           <span class="n">cache</span><span class="o">=</span><span class="n">cache</span><span class="p">,</span> <span class="n">cloud_only</span><span class="o">=</span><span class="n">cloud_only</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">620</span>     <span class="n">manifest_array</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">local_path</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">msg</span><span class="p">,</span> <span class="n">url</span><span class="p">])</span>
-<span class="g g-Whitespace">    </span><span class="mi">622</span> <span class="n">manifest</span> <span class="o">=</span> <span class="n">Table</span><span class="p">(</span><span class="n">rows</span><span class="o">=</span><span class="n">manifest_array</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;Local Path&#39;</span><span class="p">,</span> <span class="s1">&#39;Status&#39;</span><span class="p">,</span> <span class="s1">&#39;Message&#39;</span><span class="p">,</span> <span class="s2">&quot;URL&quot;</span><span class="p">))</span>
-
-<span class="nn">File /usr/share/miniconda/lib/python3.9/site-packages/astroquery/mast/observations.py:568,</span> in <span class="ni">ObservationsClass.download_file</span><span class="nt">(self, uri, local_path, base_url, cache, cloud_only)</span>
-<span class="g g-Whitespace">    </span><span class="mi">565</span>             <span class="bp">self</span><span class="o">.</span><span class="n">_download_file</span><span class="p">(</span><span class="n">data_url</span><span class="p">,</span> <span class="n">local_path</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">566</span>                                 <span class="n">cache</span><span class="o">=</span><span class="n">cache</span><span class="p">,</span> <span class="n">head_safe</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">continuation</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">567</span> <span class="k">else</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">568</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_download_file</span><span class="p">(</span><span class="n">data_url</span><span class="p">,</span> <span class="n">local_path</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">569</span>                         <span class="n">cache</span><span class="o">=</span><span class="n">cache</span><span class="p">,</span> <span class="n">head_safe</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">continuation</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">571</span> <span class="c1"># check if file exists also this is where would perform md5,</span>
-<span class="g g-Whitespace">    </span><span class="mi">572</span> <span class="c1"># and also check the filesize if the database reliably reported file sizes</span>
-<span class="g g-Whitespace">    </span><span class="mi">573</span> <span class="k">if</span> <span class="p">(</span><span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">local_path</span><span class="p">))</span> <span class="ow">and</span> <span class="p">(</span><span class="n">status</span> <span class="o">!=</span> <span class="s2">&quot;SKIPPED&quot;</span><span class="p">):</span>
-
-<span class="nn">File /usr/share/miniconda/lib/python3.9/site-packages/astroquery/query.py:417,</span> in <span class="ni">BaseQuery._download_file</span><span class="nt">(self, url, local_filepath, timeout, auth, continuation, cache, method, head_safe, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">415</span>     <span class="n">open_mode</span> <span class="o">=</span> <span class="s1">&#39;wb&#39;</span>
-<span class="g g-Whitespace">    </span><span class="mi">416</span>     <span class="k">if</span> <span class="n">head_safe</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">417</span>         <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_session</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="n">method</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">418</span>                                          <span class="n">timeout</span><span class="o">=</span><span class="n">timeout</span><span class="p">,</span> <span class="n">stream</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">419</span>                                          <span class="n">auth</span><span class="o">=</span><span class="n">auth</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">420</span>         <span class="n">response</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">422</span> <span class="n">blocksize</span> <span class="o">=</span> <span class="n">astropy</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">conf</span><span class="o">.</span><span class="n">download_block_size</span>
-
-<span class="nn">File /usr/share/miniconda/lib/python3.9/site-packages/requests/sessions.py:529,</span> in <span class="ni">Session.request</span><span class="nt">(self, method, url, params, data, headers, cookies, files, auth, timeout, allow_redirects, proxies, hooks, stream, verify, cert, json)</span>
-<span class="g g-Whitespace">    </span><span class="mi">524</span> <span class="n">send_kwargs</span> <span class="o">=</span> <span class="p">{</span>
-<span class="g g-Whitespace">    </span><span class="mi">525</span>     <span class="s1">&#39;timeout&#39;</span><span class="p">:</span> <span class="n">timeout</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">526</span>     <span class="s1">&#39;allow_redirects&#39;</span><span class="p">:</span> <span class="n">allow_redirects</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">527</span> <span class="p">}</span>
-<span class="g g-Whitespace">    </span><span class="mi">528</span> <span class="n">send_kwargs</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">settings</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">529</span> <span class="n">resp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">prep</span><span class="p">,</span> <span class="o">**</span><span class="n">send_kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">531</span> <span class="k">return</span> <span class="n">resp</span>
-
-<span class="nn">File /usr/share/miniconda/lib/python3.9/site-packages/requests/sessions.py:645,</span> in <span class="ni">Session.send</span><span class="nt">(self, request, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">642</span> <span class="n">start</span> <span class="o">=</span> <span class="n">preferred_clock</span><span class="p">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">644</span> <span class="c1"># Send the request</span>
-<span class="ne">--&gt; </span><span class="mi">645</span> <span class="n">r</span> <span class="o">=</span> <span class="n">adapter</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">647</span> <span class="c1"># Total elapsed time of the request (approximately)</span>
-<span class="g g-Whitespace">    </span><span class="mi">648</span> <span class="n">elapsed</span> <span class="o">=</span> <span class="n">preferred_clock</span><span class="p">()</span> <span class="o">-</span> <span class="n">start</span>
-
-<span class="nn">File /usr/share/miniconda/lib/python3.9/site-packages/requests/adapters.py:440,</span> in <span class="ni">HTTPAdapter.send</span><span class="nt">(self, request, stream, timeout, verify, cert, proxies)</span>
-<span class="g g-Whitespace">    </span><span class="mi">438</span> <span class="k">try</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">439</span>     <span class="k">if</span> <span class="ow">not</span> <span class="n">chunked</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">440</span>         <span class="n">resp</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">441</span>             <span class="n">method</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">method</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">442</span>             <span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">443</span>             <span class="n">body</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">body</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">444</span>             <span class="n">headers</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">headers</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">445</span>             <span class="n">redirect</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">446</span>             <span class="n">assert_same_host</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">447</span>             <span class="n">preload_content</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">448</span>             <span class="n">decode_content</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">449</span>             <span class="n">retries</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">max_retries</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">450</span>             <span class="n">timeout</span><span class="o">=</span><span class="n">timeout</span>
-<span class="g g-Whitespace">    </span><span class="mi">451</span>         <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">453</span>     <span class="c1"># Send the request.</span>
-<span class="g g-Whitespace">    </span><span class="mi">454</span>     <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">455</span>         <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">conn</span><span class="p">,</span> <span class="s1">&#39;proxy_pool&#39;</span><span class="p">):</span>
-
-<span class="nn">File /usr/share/miniconda/lib/python3.9/site-packages/urllib3/connectionpool.py:703,</span> in <span class="ni">HTTPConnectionPool.urlopen</span><span class="nt">(self, method, url, body, headers, retries, redirect, assert_same_host, timeout, pool_timeout, release_conn, chunked, body_pos, **response_kw)</span>
-<span class="g g-Whitespace">    </span><span class="mi">700</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_prepare_proxy</span><span class="p">(</span><span class="n">conn</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">702</span> <span class="c1"># Make the request on the httplib connection object.</span>
-<span class="ne">--&gt; </span><span class="mi">703</span> <span class="n">httplib_response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_make_request</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">704</span>     <span class="n">conn</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">705</span>     <span class="n">method</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">706</span>     <span class="n">url</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">707</span>     <span class="n">timeout</span><span class="o">=</span><span class="n">timeout_obj</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">708</span>     <span class="n">body</span><span class="o">=</span><span class="n">body</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">709</span>     <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">710</span>     <span class="n">chunked</span><span class="o">=</span><span class="n">chunked</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">711</span> <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">713</span> <span class="c1"># If we&#39;re going to release the connection in ``finally:``, then</span>
-<span class="g g-Whitespace">    </span><span class="mi">714</span> <span class="c1"># the response doesn&#39;t need to know about the connection. Otherwise</span>
-<span class="g g-Whitespace">    </span><span class="mi">715</span> <span class="c1"># it will also try to release it and we&#39;ll have a double-release</span>
-<span class="g g-Whitespace">    </span><span class="mi">716</span> <span class="c1"># mess.</span>
-<span class="g g-Whitespace">    </span><span class="mi">717</span> <span class="n">response_conn</span> <span class="o">=</span> <span class="n">conn</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">release_conn</span> <span class="k">else</span> <span class="kc">None</span>
-
-<span class="nn">File /usr/share/miniconda/lib/python3.9/site-packages/urllib3/connectionpool.py:449,</span> in <span class="ni">HTTPConnectionPool._make_request</span><span class="nt">(self, conn, method, url, timeout, chunked, **httplib_request_kw)</span>
-<span class="g g-Whitespace">    </span><span class="mi">444</span>             <span class="n">httplib_response</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">getresponse</span><span class="p">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">445</span>         <span class="k">except</span> <span class="ne">BaseException</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">446</span>             <span class="c1"># Remove the TypeError from the exception chain in</span>
-<span class="g g-Whitespace">    </span><span class="mi">447</span>             <span class="c1"># Python 3 (including for exceptions like SystemExit).</span>
-<span class="g g-Whitespace">    </span><span class="mi">448</span>             <span class="c1"># Otherwise it looks like a bug in the code.</span>
-<span class="ne">--&gt; </span><span class="mi">449</span>             <span class="n">six</span><span class="o">.</span><span class="n">raise_from</span><span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">450</span> <span class="k">except</span> <span class="p">(</span><span class="n">SocketTimeout</span><span class="p">,</span> <span class="n">BaseSSLError</span><span class="p">,</span> <span class="n">SocketError</span><span class="p">)</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">451</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_raise_timeout</span><span class="p">(</span><span class="n">err</span><span class="o">=</span><span class="n">e</span><span class="p">,</span> <span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">,</span> <span class="n">timeout_value</span><span class="o">=</span><span class="n">read_timeout</span><span class="p">)</span>
-
-<span class="nn">File &lt;string&gt;:3,</span> in <span class="ni">raise_from</span><span class="nt">(value, from_value)</span>
-
-<span class="nn">File /usr/share/miniconda/lib/python3.9/site-packages/urllib3/connectionpool.py:444,</span> in <span class="ni">HTTPConnectionPool._make_request</span><span class="nt">(self, conn, method, url, timeout, chunked, **httplib_request_kw)</span>
-<span class="g g-Whitespace">    </span><span class="mi">441</span> <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">442</span>     <span class="c1"># Python 3</span>
-<span class="g g-Whitespace">    </span><span class="mi">443</span>     <span class="k">try</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">444</span>         <span class="n">httplib_response</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">getresponse</span><span class="p">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">445</span>     <span class="k">except</span> <span class="ne">BaseException</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">446</span>         <span class="c1"># Remove the TypeError from the exception chain in</span>
-<span class="g g-Whitespace">    </span><span class="mi">447</span>         <span class="c1"># Python 3 (including for exceptions like SystemExit).</span>
-<span class="g g-Whitespace">    </span><span class="mi">448</span>         <span class="c1"># Otherwise it looks like a bug in the code.</span>
-<span class="g g-Whitespace">    </span><span class="mi">449</span>         <span class="n">six</span><span class="o">.</span><span class="n">raise_from</span><span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
-
-<span class="nn">File /usr/share/miniconda/lib/python3.9/http/client.py:1377,</span> in <span class="ni">HTTPConnection.getresponse</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1375</span> <span class="k">try</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1376</span>     <span class="k">try</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">1377</span>         <span class="n">response</span><span class="o">.</span><span class="n">begin</span><span class="p">()</span>
-<span class="g g-Whitespace">   </span><span class="mi">1378</span>     <span class="k">except</span> <span class="ne">ConnectionError</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1379</span>         <span class="bp">self</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-
-<span class="nn">File /usr/share/miniconda/lib/python3.9/http/client.py:320,</span> in <span class="ni">HTTPResponse.begin</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">    </span><span class="mi">318</span> <span class="c1"># read until we get a non-100 response</span>
-<span class="g g-Whitespace">    </span><span class="mi">319</span> <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">320</span>     <span class="n">version</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">reason</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_read_status</span><span class="p">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">321</span>     <span class="k">if</span> <span class="n">status</span> <span class="o">!=</span> <span class="n">CONTINUE</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">322</span>         <span class="k">break</span>
-
-<span class="nn">File /usr/share/miniconda/lib/python3.9/http/client.py:281,</span> in <span class="ni">HTTPResponse._read_status</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">    </span><span class="mi">280</span> <span class="k">def</span> <span class="nf">_read_status</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="ne">--&gt; </span><span class="mi">281</span>     <span class="n">line</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fp</span><span class="o">.</span><span class="n">readline</span><span class="p">(</span><span class="n">_MAXLINE</span> <span class="o">+</span> <span class="mi">1</span><span class="p">),</span> <span class="s2">&quot;iso-8859-1&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">282</span>     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">line</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">_MAXLINE</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">283</span>         <span class="k">raise</span> <span class="n">LineTooLong</span><span class="p">(</span><span class="s2">&quot;status line&quot;</span><span class="p">)</span>
-
-<span class="nn">File /usr/share/miniconda/lib/python3.9/socket.py:704,</span> in <span class="ni">SocketIO.readinto</span><span class="nt">(self, b)</span>
-<span class="g g-Whitespace">    </span><span class="mi">702</span> <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">703</span>     <span class="k">try</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">704</span>         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sock</span><span class="o">.</span><span class="n">recv_into</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">705</span>     <span class="k">except</span> <span class="n">timeout</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">706</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_timeout_occurred</span> <span class="o">=</span> <span class="kc">True</span>
-
-<span class="nn">File /usr/share/miniconda/lib/python3.9/ssl.py:1241,</span> in <span class="ni">SSLSocket.recv_into</span><span class="nt">(self, buffer, nbytes, flags)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1237</span>     <span class="k">if</span> <span class="n">flags</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1238</span>         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
-<span class="g g-Whitespace">   </span><span class="mi">1239</span>           <span class="s2">&quot;non-zero flags not allowed in calls to recv_into() on </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span>
-<span class="g g-Whitespace">   </span><span class="mi">1240</span>           <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="p">)</span>
-<span class="ne">-&gt; </span><span class="mi">1241</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">nbytes</span><span class="p">,</span> <span class="n">buffer</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1242</span> <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1243</span>     <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">recv_into</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span> <span class="n">nbytes</span><span class="p">,</span> <span class="n">flags</span><span class="p">)</span>
-
-<span class="nn">File /usr/share/miniconda/lib/python3.9/ssl.py:1099,</span> in <span class="ni">SSLSocket.read</span><span class="nt">(self, len, buffer)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1097</span> <span class="k">try</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1098</span>     <span class="k">if</span> <span class="n">buffer</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">1099</span>         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sslobj</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="nb">len</span><span class="p">,</span> <span class="n">buffer</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1100</span>     <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1101</span>         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sslobj</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="nb">len</span><span class="p">)</span>
-
-<span class="ne">KeyboardInterrupt</span>: 
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lc</span><span class="o">.</span><span class="n">plot</span><span class="p">();</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../../_images/kepler_visualizing_periodic_signals_using_a_river_plot_9_0.png" src="../../../../_images/kepler_visualizing_periodic_signals_using_a_river_plot_9_0.png" />
 </div>
 </div>
 <p>When we plot the data, we see that there is a long-term trend, likely from starspots. We can remove this with a Savitzky-Golay filter using Lightkurve’s <code class="docutils literal notranslate"><span class="pre">flatten</span></code> method.</p>
@@ -1082,6 +885,9 @@ title="Print to PDF"
 <span class="n">clc</span><span class="o">.</span><span class="n">plot</span><span class="p">();</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../../_images/kepler_visualizing_periodic_signals_using_a_river_plot_11_0.png" src="../../../../_images/kepler_visualizing_periodic_signals_using_a_river_plot_11_0.png" />
 </div>
 </div>
 <p>The light curve is now flat. Let’s fold the light curve and plot it.</p>
@@ -1094,6 +900,9 @@ title="Print to PDF"
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="../../../../_images/kepler_visualizing_periodic_signals_using_a_river_plot_13_0.png" src="../../../../_images/kepler_visualizing_periodic_signals_using_a_river_plot_13_0.png" />
+</div>
 </div>
 <p>It looks like there is a concentration of points that are around phase of <code class="docutils literal notranslate"><span class="pre">0</span></code>, but they don’t seem to line up nicely. This is caused by the transit of the planet occurring slightly before or after you would predict using a constant period. Cases of planets with meaningful TTVs are well suited for further analysis using a river plot.</p>
 </section>
@@ -1105,6 +914,161 @@ title="Print to PDF"
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">folded_lc</span><span class="o">.</span><span class="n">plot_river</span><span class="p">();</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span> <span class="p">[</span><span class="mi">6</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">folded_lc</span><span class="o">.</span><span class="n">plot_river</span><span class="p">();</span>
+
+<span class="nn">File /usr/share/miniconda/lib/python3.9/site-packages/lightkurve/lightcurve.py:3091,</span> in <span class="ni">FoldedLightCurve.plot_river</span><span class="nt">(self, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3076</span> <span class="k">def</span> <span class="nf">plot_river</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">3077</span>     <span class="sd">&quot;&quot;&quot;Plot the folded light curve in a river style.</span>
+<span class="g g-Whitespace">   </span><span class="mi">3078</span><span class="sd"> </span>
+<span class="g g-Whitespace">   </span><span class="mi">3079</span><span class="sd">     See `~LightCurve.plot_river` for details on the accepted arguments.</span>
+<span class="sd">   (...)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3089</span><span class="sd">         The matplotlib axes object.</span>
+<span class="g g-Whitespace">   </span><span class="mi">3090</span><span class="sd">     &quot;&quot;&quot;</span>
+<span class="ne">-&gt; </span><span class="mi">3091</span>     <span class="n">ax</span> <span class="o">=</span> <span class="nb">super</span><span class="p">(</span><span class="n">FoldedLightCurve</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">plot_river</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">3092</span>         <span class="n">period</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">period</span><span class="p">,</span> <span class="n">epoch_time</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">epoch_time</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span>
+<span class="g g-Whitespace">   </span><span class="mi">3093</span>     <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3094</span>     <span class="k">return</span> <span class="n">ax</span>
+
+<span class="nn">File /usr/share/miniconda/lib/python3.9/site-packages/astropy/utils/decorators.py:554,</span> in <span class="ni">deprecated_renamed_argument.&lt;locals&gt;.decorator.&lt;locals&gt;.wrapper</span><span class="nt">(*args, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">551</span>             <span class="n">msg</span> <span class="o">+=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">        Use </span><span class="si">{</span><span class="n">alternative</span><span class="si">}</span><span class="s1"> instead.&#39;</span>
+<span class="g g-Whitespace">    </span><span class="mi">552</span>         <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="n">warning_type</span><span class="p">,</span> <span class="n">stacklevel</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">554</span> <span class="k">return</span> <span class="n">function</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="nn">File /usr/share/miniconda/lib/python3.9/site-packages/lightkurve/lightcurve.py:2728,</span> in <span class="ni">LightCurve.plot_river</span><span class="nt">(self, period, epoch_time, ax, bin_points, minimum_phase, maximum_phase, method, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2723</span>     <span class="n">_</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="n">cyc</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">*</span> <span class="mf">0.1</span><span class="p">))</span>
+<span class="g g-Whitespace">   </span><span class="mi">2725</span> <span class="n">im</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">pcolormesh</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">2726</span>     <span class="n">bs</span><span class="p">,</span> <span class="n">cycs</span><span class="p">,</span> <span class="n">ar</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="n">vmin</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="n">vmax</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span>
+<span class="g g-Whitespace">   </span><span class="mi">2727</span> <span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">2728</span> <span class="n">cbar</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2729</span> <span class="k">if</span> <span class="n">method</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;mean&quot;</span><span class="p">,</span> <span class="s2">&quot;median&quot;</span><span class="p">]:</span>
+<span class="g g-Whitespace">   </span><span class="mi">2730</span>     <span class="n">unit</span> <span class="o">=</span> <span class="s2">&quot;[Normalized Flux]&quot;</span>
+
+<span class="nn">File /usr/share/miniconda/lib/python3.9/site-packages/matplotlib/pyplot.py:2065,</span> in <span class="ni">colorbar</span><span class="nt">(mappable, cax, ax, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2060</span>     <span class="k">if</span> <span class="n">mappable</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">2061</span>         <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s1">&#39;No mappable was found to use for colorbar &#39;</span>
+<span class="g g-Whitespace">   </span><span class="mi">2062</span>                            <span class="s1">&#39;creation. First define a mappable such as &#39;</span>
+<span class="g g-Whitespace">   </span><span class="mi">2063</span>                            <span class="s1">&#39;an image (with imshow) or a contour set (&#39;</span>
+<span class="g g-Whitespace">   </span><span class="mi">2064</span>                            <span class="s1">&#39;with contourf).&#39;</span><span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">2065</span> <span class="n">ret</span> <span class="o">=</span> <span class="n">gcf</span><span class="p">()</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">mappable</span><span class="p">,</span> <span class="n">cax</span><span class="o">=</span><span class="n">cax</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2066</span> <span class="k">return</span> <span class="n">ret</span>
+
+<span class="nn">File /usr/share/miniconda/lib/python3.9/site-packages/matplotlib/figure.py:1265,</span> in <span class="ni">FigureBase.colorbar</span><span class="nt">(self, mappable, cax, ax, use_gridspec, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1263</span> <span class="n">userax</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="g g-Whitespace">   </span><span class="mi">1264</span> <span class="k">if</span> <span class="p">(</span><span class="n">use_gridspec</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">SubplotBase</span><span class="p">)):</span>
+<span class="ne">-&gt; </span><span class="mi">1265</span>     <span class="n">cax</span><span class="p">,</span> <span class="n">kwargs</span> <span class="o">=</span> <span class="n">cbar</span><span class="o">.</span><span class="n">make_axes_gridspec</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1266</span> <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1267</span>     <span class="n">cax</span><span class="p">,</span> <span class="n">kwargs</span> <span class="o">=</span> <span class="n">cbar</span><span class="o">.</span><span class="n">make_axes</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="nn">File /usr/share/miniconda/lib/python3.9/site-packages/matplotlib/colorbar.py:1558,</span> in <span class="ni">make_axes_gridspec</span><span class="nt">(parent, location, orientation, fraction, shrink, aspect, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1555</span>     <span class="n">parent</span><span class="o">.</span><span class="n">set_anchor</span><span class="p">(</span><span class="n">panchor</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1557</span> <span class="n">fig</span> <span class="o">=</span> <span class="n">parent</span><span class="o">.</span><span class="n">get_figure</span><span class="p">()</span>
+<span class="ne">-&gt; </span><span class="mi">1558</span> <span class="n">cax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="n">ss_cb</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;&lt;colorbar&gt;&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1559</span> <span class="n">cax</span><span class="o">.</span><span class="n">set_anchor</span><span class="p">(</span><span class="n">anchor</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1560</span> <span class="n">cax</span><span class="o">.</span><span class="n">set_box_aspect</span><span class="p">(</span><span class="n">aspect</span><span class="p">)</span>
+
+<span class="nn">File /usr/share/miniconda/lib/python3.9/site-packages/matplotlib/figure.py:745,</span> in <span class="ni">FigureBase.add_subplot</span><span class="nt">(self, *args, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">742</span>         <span class="n">args</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">])))</span>
+<span class="g g-Whitespace">    </span><span class="mi">743</span>     <span class="n">projection_class</span><span class="p">,</span> <span class="n">pkw</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_process_projection_requirements</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">744</span>         <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">745</span>     <span class="n">ax</span> <span class="o">=</span> <span class="n">subplot_class_factory</span><span class="p">(</span><span class="n">projection_class</span><span class="p">)(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">pkw</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">746</span>     <span class="n">key</span> <span class="o">=</span> <span class="p">(</span><span class="n">projection_class</span><span class="p">,</span> <span class="n">pkw</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">747</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_add_axes_internal</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
+
+<span class="nn">File /usr/share/miniconda/lib/python3.9/site-packages/matplotlib/axes/_subplots.py:34,</span> in <span class="ni">SubplotBase.__init__</span><span class="nt">(self, fig, *args, **kwargs)</span>
+<span class="g g-Whitespace">     </span><span class="mi">15</span> <span class="sd">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">     </span><span class="mi">16</span><span class="sd"> Parameters</span>
+<span class="g g-Whitespace">     </span><span class="mi">17</span><span class="sd"> ----------</span>
+<span class="sd">   (...)</span>
+<span class="g g-Whitespace">     </span><span class="mi">31</span><span class="sd">     Keyword arguments are passed to the Axes (sub)class constructor.</span>
+<span class="g g-Whitespace">     </span><span class="mi">32</span><span class="sd"> &quot;&quot;&quot;</span>
+<span class="g g-Whitespace">     </span><span class="mi">33</span> <span class="c1"># _axes_class is set in the subplot_class_factory</span>
+<span class="ne">---&gt; </span><span class="mi">34</span> <span class="bp">self</span><span class="o">.</span><span class="n">_axes_class</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fig</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">35</span> <span class="c1"># This will also update the axes position.</span>
+<span class="g g-Whitespace">     </span><span class="mi">36</span> <span class="bp">self</span><span class="o">.</span><span class="n">set_subplotspec</span><span class="p">(</span><span class="n">SubplotSpec</span><span class="o">.</span><span class="n">_from_subplot_args</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="n">args</span><span class="p">))</span>
+
+<span class="nn">File /usr/share/miniconda/lib/python3.9/site-packages/matplotlib/axes/_base.py:653,</span> in <span class="ni">_AxesBase.__init__</span><span class="nt">(self, fig, rect, facecolor, frameon, sharex, sharey, label, xscale, yscale, box_aspect, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">650</span> <span class="bp">self</span><span class="o">.</span><span class="n">set_axisbelow</span><span class="p">(</span><span class="n">mpl</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;axes.axisbelow&#39;</span><span class="p">])</span>
+<span class="g g-Whitespace">    </span><span class="mi">652</span> <span class="bp">self</span><span class="o">.</span><span class="n">_rasterization_zorder</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="ne">--&gt; </span><span class="mi">653</span> <span class="bp">self</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">655</span> <span class="c1"># funcs used to format x and y - fall back on major formatters</span>
+<span class="g g-Whitespace">    </span><span class="mi">656</span> <span class="bp">self</span><span class="o">.</span><span class="n">fmt_xdata</span> <span class="o">=</span> <span class="kc">None</span>
+
+<span class="nn">File /usr/share/miniconda/lib/python3.9/site-packages/matplotlib/axes/_base.py:1348,</span> in <span class="ni">_AxesBase.clear</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1346</span>     <span class="bp">self</span><span class="o">.</span><span class="n">cla</span><span class="p">()</span>
+<span class="g g-Whitespace">   </span><span class="mi">1347</span> <span class="k">else</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1348</span>     <span class="bp">self</span><span class="o">.</span><span class="n">__clear</span><span class="p">()</span>
+
+<span class="nn">File /usr/share/miniconda/lib/python3.9/site-packages/matplotlib/axes/_base.py:1327,</span> in <span class="ni">_AxesBase.__clear</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1323</span> <span class="bp">self</span><span class="o">.</span><span class="n">patch</span><span class="o">.</span><span class="n">set_transform</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">transAxes</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1325</span> <span class="bp">self</span><span class="o">.</span><span class="n">set_axis_on</span><span class="p">()</span>
+<span class="ne">-&gt; </span><span class="mi">1327</span> <span class="bp">self</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_clip_path</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">patch</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1328</span> <span class="bp">self</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_clip_path</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">patch</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1330</span> <span class="bp">self</span><span class="o">.</span><span class="n">_shared_axes</span><span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">clean</span><span class="p">()</span>
+
+<span class="nn">File /usr/share/miniconda/lib/python3.9/site-packages/matplotlib/axis.py:1012,</span> in <span class="ni">Axis.set_clip_path</span><span class="nt">(self, clippath, transform)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1010</span> <span class="k">def</span> <span class="nf">set_clip_path</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">clippath</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">1011</span>     <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">set_clip_path</span><span class="p">(</span><span class="n">clippath</span><span class="p">,</span> <span class="n">transform</span><span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">1012</span>     <span class="k">for</span> <span class="n">child</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">majorTicks</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">minorTicks</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1013</span>         <span class="n">child</span><span class="o">.</span><span class="n">set_clip_path</span><span class="p">(</span><span class="n">clippath</span><span class="p">,</span> <span class="n">transform</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1014</span>     <span class="bp">self</span><span class="o">.</span><span class="n">stale</span> <span class="o">=</span> <span class="kc">True</span>
+
+<span class="nn">File /usr/share/miniconda/lib/python3.9/site-packages/matplotlib/axis.py:604,</span> in <span class="ni">_LazyTickList.__get__</span><span class="nt">(self, instance, cls)</span>
+<span class="g g-Whitespace">    </span><span class="mi">602</span> <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">603</span>     <span class="n">instance</span><span class="o">.</span><span class="n">minorTicks</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="ne">--&gt; </span><span class="mi">604</span>     <span class="n">tick</span> <span class="o">=</span> <span class="n">instance</span><span class="o">.</span><span class="n">_get_tick</span><span class="p">(</span><span class="n">major</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">605</span>     <span class="n">instance</span><span class="o">.</span><span class="n">minorTicks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tick</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">606</span>     <span class="k">return</span> <span class="n">instance</span><span class="o">.</span><span class="n">minorTicks</span>
+
+<span class="nn">File /usr/share/miniconda/lib/python3.9/site-packages/matplotlib/axis.py:1483,</span> in <span class="ni">Axis._get_tick</span><span class="nt">(self, major)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1479</span>     <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1480</span>         <span class="sa">f</span><span class="s2">&quot;The Axis subclass </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2"> must define &quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1481</span>         <span class="s2">&quot;_tick_class or reimplement _get_tick()&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1482</span> <span class="n">tick_kw</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_major_tick_kw</span> <span class="k">if</span> <span class="n">major</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">_minor_tick_kw</span>
+<span class="ne">-&gt; </span><span class="mi">1483</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_tick_class</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">axes</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">major</span><span class="o">=</span><span class="n">major</span><span class="p">,</span> <span class="o">**</span><span class="n">tick_kw</span><span class="p">)</span>
+
+<span class="nn">File /usr/share/miniconda/lib/python3.9/site-packages/matplotlib/axis.py:432,</span> in <span class="ni">XTick.__init__</span><span class="nt">(self, *args, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">429</span> <span class="bp">self</span><span class="o">.</span><span class="n">gridline</span><span class="o">.</span><span class="n">set</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">430</span>     <span class="n">data</span><span class="o">=</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]),</span> <span class="n">transform</span><span class="o">=</span><span class="n">ax</span><span class="o">.</span><span class="n">get_xaxis_transform</span><span class="p">(</span><span class="s2">&quot;grid&quot;</span><span class="p">))</span>
+<span class="g g-Whitespace">    </span><span class="mi">431</span> <span class="c1"># the y loc is 3 points below the min of y axis</span>
+<span class="ne">--&gt; </span><span class="mi">432</span> <span class="n">trans</span><span class="p">,</span> <span class="n">va</span><span class="p">,</span> <span class="n">ha</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_text1_transform</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">433</span> <span class="bp">self</span><span class="o">.</span><span class="n">label1</span><span class="o">.</span><span class="n">set</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">434</span>     <span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">435</span>     <span class="n">verticalalignment</span><span class="o">=</span><span class="n">va</span><span class="p">,</span> <span class="n">horizontalalignment</span><span class="o">=</span><span class="n">ha</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">trans</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">436</span> <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">437</span> <span class="n">trans</span><span class="p">,</span> <span class="n">va</span><span class="p">,</span> <span class="n">ha</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_text2_transform</span><span class="p">()</span>
+
+<span class="nn">File /usr/share/miniconda/lib/python3.9/site-packages/matplotlib/axis.py:444,</span> in <span class="ni">XTick._get_text1_transform</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">443</span> <span class="k">def</span> <span class="nf">_get_text1_transform</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">444</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">axes</span><span class="o">.</span><span class="n">get_xaxis_text1_transform</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_pad</span><span class="p">)</span>
+
+<span class="nn">File /usr/share/miniconda/lib/python3.9/site-packages/matplotlib/axes/_base.py:921,</span> in <span class="ni">_AxesBase.get_xaxis_text1_transform</span><span class="nt">(self, pad_points)</span>
+<span class="g g-Whitespace">    </span><span class="mi">900</span> <span class="sd">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">901</span><span class="sd"> Returns</span>
+<span class="g g-Whitespace">    </span><span class="mi">902</span><span class="sd"> -------</span>
+<span class="sd">   (...)</span>
+<span class="g g-Whitespace">    </span><span class="mi">917</span><span class="sd"> may need to place axis elements in different locations.</span>
+<span class="g g-Whitespace">    </span><span class="mi">918</span><span class="sd"> &quot;&quot;&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">919</span> <span class="n">labels_align</span> <span class="o">=</span> <span class="n">mpl</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">&quot;xtick.alignment&quot;</span><span class="p">]</span>
+<span class="g g-Whitespace">    </span><span class="mi">920</span> <span class="k">return</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">get_xaxis_transform</span><span class="p">(</span><span class="n">which</span><span class="o">=</span><span class="s1">&#39;tick1&#39;</span><span class="p">)</span> <span class="o">+</span>
+<span class="ne">--&gt; </span><span class="mi">921</span>         <span class="n">mtransforms</span><span class="o">.</span><span class="n">ScaledTranslation</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span> <span class="o">*</span> <span class="n">pad_points</span> <span class="o">/</span> <span class="mi">72</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">922</span>                                       <span class="bp">self</span><span class="o">.</span><span class="n">figure</span><span class="o">.</span><span class="n">dpi_scale_trans</span><span class="p">),</span>
+<span class="g g-Whitespace">    </span><span class="mi">923</span>         <span class="s2">&quot;top&quot;</span><span class="p">,</span> <span class="n">labels_align</span><span class="p">)</span>
+
+<span class="nn">File /usr/share/miniconda/lib/python3.9/site-packages/matplotlib/transforms.py:2679,</span> in <span class="ni">ScaledTranslation.__init__</span><span class="nt">(self, xt, yt, scale_trans, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2678</span> <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">xt</span><span class="p">,</span> <span class="n">yt</span><span class="p">,</span> <span class="n">scale_trans</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="ne">-&gt; </span><span class="mi">2679</span>     <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2680</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_t</span> <span class="o">=</span> <span class="p">(</span><span class="n">xt</span><span class="p">,</span> <span class="n">yt</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2681</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_scale_trans</span> <span class="o">=</span> <span class="n">scale_trans</span>
+
+<span class="ne">KeyboardInterrupt</span>: 
+</pre></div>
+</div>
+<img alt="../../../../_images/kepler_visualizing_periodic_signals_using_a_river_plot_17_1.png" src="../../../../_images/kepler_visualizing_periodic_signals_using_a_river_plot_17_1.png" />
 </div>
 </div>
 <p>The river plot shows the same plot as the <code class="docutils literal notranslate"><span class="pre">fold</span></code> method, but each time the light curve is folded, a new row is started in the plot. The colorbar then shows the flux in each part of the light curve.</p>

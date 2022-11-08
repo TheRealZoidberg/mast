@@ -32,10 +32,9 @@ nbclient.exceptions.CellTimeoutError: A cell timed out while it was being execut
 The message was: Cell execution timed out.
 Here is a preview of the cell contents:
 -------------------
-# Search for Kepler observations of Kepler-69
-search_result = lk.search_lightcurve('Kepler-69', author='Kepler', cadence='long')
-# Download all available Kepler light curves
-lc_collection = search_result.download_all()
-lc_collection.plot();
+ax = masked_lc.fold(planet_c_period, planet_c_t0).scatter()
+masked_lc.fold(planet_c_period, planet_c_t0).bin(.1).plot(ax=ax, c='r', lw=2, 
+                                                          label='Binned Flux')
+ax.set_xlim(-5, 5);
 -------------------
 
